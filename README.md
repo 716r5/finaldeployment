@@ -1,6 +1,7 @@
 # Hyperspectral Oil-Spill Detection on FPGA
 
 notes 
+
 *1197 have the results in them
 
 *sometimes the fpga doesnt detect the usb, if that happens leave the fpga alone for a while or type dfx-mgr-client -load dpu and then xdputil query 

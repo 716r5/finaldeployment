@@ -1,5 +1,5 @@
 # Hyperspectral Oil-Spill Detection on FPGA
-
+*1197 have the results in them
 A deployment package for running a trained hyperspectral CNN on the PlanetSpark X7 AI Edge V23. The INT8 model runs on the board's DPU. The CPU prepares patches, applies variance-adaptive thresholding and builds the scene maps.
 
 The input is a stored hyperspectral scene. Each 11 × 11 patch contains 138 spectral bands and produces one centre-pixel prediction. The output includes an oil/water map, an overlay, pixel coordinates and classification metrics when labels are available.

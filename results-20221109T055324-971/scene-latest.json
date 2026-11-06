@@ -1,0 +1,308 @@
+{
+  "status": "PASS",
+  "mode": "PROCESSED_ON_FPGA",
+  "boot_id": "cf6f77ca-f52e-4b80-ab12-8cfc388a083a",
+  "finished_utc": "2022-11-09T05:53:23.039137+00:00",
+  "output_directory": "/var/lib/oil-spill/scenes/bb3e3ee43ed4-698546276774-s1",
+  "summary": {
+    "status": "COMPLETE",
+    "source_name": "GM03.mat",
+    "identity": {
+      "model_sha256": "6985462767744b40c760ed1fff075c3c350d281aff4d705253e52fb010a8c3e4",
+      "cube_sha256": "172a258eb1ce6bf82c22a303525fdf7c45d0d2da60f5f11802af0031341219d0",
+      "scene_metadata_sha256": "bb3e3ee43ed47413521603232fe8d3cde717cc767d4e2f92c45bafafbef52c74",
+      "stride": 1
+    },
+    "source_sha256": "e98ebb0f83de41f7939aa52bbcf527a5f41ad19c9761a907f33bcf313b89f8bd",
+    "source_original_shape": [
+      1386,
+      690,
+      224
+    ],
+    "preprocessing_contract": "hsi-138-scene-percentile-1-99-v1",
+    "python": "3.10.6 (main, Aug  1 2022, 20:38:21) [GCC 12.2.0]",
+    "numpy": "1.23.3",
+    "finished_utc": "2022-11-09T05:53:19.543001+00:00",
+    "scene_shape": [
+      1386,
+      690
+    ],
+    "classified_centers": 935680,
+    "unclassified_pixels": 20660,
+    "predicted_oil_centers": 82054,
+    "predicted_water_centers": 853626,
+    "coverage": "Every valid centre",
+    "border_pixels": 5,
+    "threshold": "logit >= 0 => oil",
+    "fingerprint": "0x101000056010407",
+    "test_split_status": "NOT_CONFIRMED_HELD_OUT",
+    "graph_coverage": [
+      {
+        "name": "subgraph_FinetunedCNN__input_0",
+        "device": "USER",
+        "op_types": [
+          "data-fix"
+        ]
+      },
+      {
+        "name": "subgraph_FinetunedCNN__FinetunedCNN_Linear_classifier__ret_27(TransferMatMulToConv2d)",
+        "device": "DPU",
+        "op_types": [
+          "const-fix",
+          "conv2d-fix",
+          "download",
+          "pool-fix",
+          "reshape-fix",
+          "upload"
+        ]
+      },
+      {
+        "name": "subgraph_FinetunedCNN__FinetunedCNN_ret_fix_",
+        "device": "CPU",
+        "op_types": [
+          "fix2float"
+        ],
+        "handled_by": "Host signed-INT8 dequantization, checked against the exact model graph"
+      }
+    ],
+    "accumulated_scan_seconds": 344.15027140000007,
+    "scan_patches_per_second": 2718.8123263528532,
+    "execution_mean_ms": 0.21913345308224574,
+    "execution_min_ms": 0.2097399999456684,
+    "execution_max_ms": 10.844140000017433,
+    "initialization_seconds_this_session": 16.35002378000013,
+    "input_conversion_seconds_this_session": 12.22485298000015,
+    "input_conversion_cache_reused": false,
+    "optimization": "One loaded model/runner; once-per-scene activation conversion; reused contiguous input/output buffers; 8-row checkpoints",
+    "execution_percentile_method": "0.1ms histogram intervals; values >=25.5ms share an overflow bin. Exact benchmark percentiles available separately.",
+    "timing_scope": "VART execute/wait latency; scan time includes patch copies, decoding and row checkpoints. Initialization includes source verification and input conversion. Offline laptop preprocessing and report rendering excluded. Interrupted uncommitted work is not included in resumed scan totals.",
+    "predicted_oil_fraction_of_classified_centers": 0.08769451094391245,
+    "execution_p50_interval_ms": [
+      0.2,
+      0.3
+    ],
+    "execution_p95_interval_ms": [
+      0.2,
+      0.3
+    ],
+    "oil_region_count": 851,
+    "largest_oil_regions": [
+      {
+        "pixel_count": 54350,
+        "row_min": 902,
+        "col_min": 5,
+        "row_max": 1200,
+        "col_max": 684,
+        "centroid_row": 1070.1085740570377,
+        "centroid_col": 301.689990800368,
+        "region_id": 1
+      },
+      {
+        "pixel_count": 1251,
+        "row_min": 284,
+        "col_min": 454,
+        "row_max": 392,
+        "col_max": 684,
+        "centroid_row": 339.1294964028777,
+        "centroid_col": 580.7434052757794,
+        "region_id": 2
+      },
+      {
+        "pixel_count": 1052,
+        "row_min": 1177,
+        "col_min": 565,
+        "row_max": 1216,
+        "col_max": 643,
+        "centroid_row": 1194.5475285171103,
+        "centroid_col": 604.1235741444867,
+        "region_id": 3
+      },
+      {
+        "pixel_count": 846,
+        "row_min": 1162,
+        "col_min": 52,
+        "row_max": 1236,
+        "col_max": 129,
+        "centroid_row": 1196.4137115839244,
+        "centroid_col": 100.09219858156028,
+        "region_id": 4
+      },
+      {
+        "pixel_count": 798,
+        "row_min": 1156,
+        "col_min": 616,
+        "row_max": 1186,
+        "col_max": 684,
+        "centroid_row": 1170.2005012531329,
+        "centroid_col": 658.1015037593985,
+        "region_id": 5
+      },
+      {
+        "pixel_count": 720,
+        "row_min": 891,
+        "col_min": 300,
+        "row_max": 938,
+        "col_max": 349,
+        "centroid_row": 917.4916666666667,
+        "centroid_col": 323.81666666666666,
+        "region_id": 6
+      },
+      {
+        "pixel_count": 713,
+        "row_min": 886,
+        "col_min": 420,
+        "row_max": 945,
+        "col_max": 474,
+        "centroid_row": 914.5105189340813,
+        "centroid_col": 446.13744740532957,
+        "region_id": 7
+      },
+      {
+        "pixel_count": 599,
+        "row_min": 867,
+        "col_min": 95,
+        "row_max": 912,
+        "col_max": 200,
+        "centroid_row": 887.3923205342237,
+        "centroid_col": 152.3188647746244,
+        "region_id": 8
+      },
+      {
+        "pixel_count": 589,
+        "row_min": 855,
+        "col_min": 5,
+        "row_max": 896,
+        "col_max": 109,
+        "centroid_row": 875.4736842105264,
+        "centroid_col": 65.5314091680815,
+        "region_id": 9
+      },
+      {
+        "pixel_count": 501,
+        "row_min": 871,
+        "col_min": 219,
+        "row_max": 914,
+        "col_max": 278,
+        "centroid_row": 892.5788423153692,
+        "centroid_col": 244.01397205588822,
+        "region_id": 10
+      },
+      {
+        "pixel_count": 397,
+        "row_min": 886,
+        "col_min": 500,
+        "row_max": 929,
+        "col_max": 566,
+        "centroid_row": 910.5994962216624,
+        "centroid_col": 530.4458438287154,
+        "region_id": 11
+      },
+      {
+        "pixel_count": 360,
+        "row_min": 1104,
+        "col_min": 501,
+        "row_max": 1122,
+        "col_max": 560,
+        "centroid_row": 1113.6861111111111,
+        "centroid_col": 536.6666666666666,
+        "region_id": 12
+      },
+      {
+        "pixel_count": 346,
+        "row_min": 1085,
+        "col_min": 113,
+        "row_max": 1100,
+        "col_max": 183,
+        "centroid_row": 1092.6271676300578,
+        "centroid_col": 149.7456647398844,
+        "region_id": 13
+      },
+      {
+        "pixel_count": 343,
+        "row_min": 848,
+        "col_min": 5,
+        "row_max": 882,
+        "col_max": 92,
+        "centroid_row": 865.2361516034986,
+        "centroid_col": 45.12827988338192,
+        "region_id": 14
+      },
+      {
+        "pixel_count": 332,
+        "row_min": 965,
+        "col_min": 563,
+        "row_max": 1002,
+        "col_max": 616,
+        "centroid_row": 983.1686746987951,
+        "centroid_col": 588.8584337349398,
+        "region_id": 15
+      },
+      {
+        "pixel_count": 324,
+        "row_min": 480,
+        "col_min": 159,
+        "row_max": 551,
+        "col_max": 255,
+        "centroid_row": 513.5987654320987,
+        "centroid_col": 207.68827160493828,
+        "region_id": 16
+      },
+      {
+        "pixel_count": 259,
+        "row_min": 1165,
+        "col_min": 220,
+        "row_max": 1180,
+        "col_max": 277,
+        "centroid_row": 1171.6911196911196,
+        "centroid_col": 247.26640926640925,
+        "region_id": 17
+      },
+      {
+        "pixel_count": 251,
+        "row_min": 846,
+        "col_min": 5,
+        "row_max": 861,
+        "col_max": 48,
+        "centroid_row": 854.5776892430279,
+        "centroid_col": 23.0199203187251,
+        "region_id": 18
+      },
+      {
+        "pixel_count": 230,
+        "row_min": 1152,
+        "col_min": 51,
+        "row_max": 1162,
+        "col_max": 95,
+        "centroid_row": 1156.7347826086957,
+        "centroid_col": 73.81739130434782,
+        "region_id": 19
+      },
+      {
+        "pixel_count": 226,
+        "row_min": 1083,
+        "col_min": 5,
+        "row_max": 1094,
+        "col_max": 63,
+        "centroid_row": 1087.6592920353983,
+        "centroid_col": 28.02654867256637,
+        "region_id": 20
+      }
+    ],
+    "coordinate_convention": "zero-based row,col; top-left origin; bounding-box maxima inclusive; x=col,y=row",
+    "region_connectivity": 8,
+    "region_note": "Regions are model predictions, not verified physical spill boundaries or geographic coordinates",
+    "scene_metrics": {
+      "evaluated_centers": 935680,
+      "true_oil_predicted_oil": 37747,
+      "true_water_predicted_water": 852510,
+      "true_water_predicted_oil": 44307,
+      "true_oil_predicted_water": 1116,
+      "accuracy": 0.9514545571135431,
+      "oil_precision": 0.46002632412801325,
+      "oil_recall": 0.9712837403185549,
+      "oil_f1": 0.6243456255117147,
+      "oil_iou": 0.4538535529638091,
+      "interpretation": "Scene agreement only; an independent held-out split has not been established"
+    }
+  }
+}

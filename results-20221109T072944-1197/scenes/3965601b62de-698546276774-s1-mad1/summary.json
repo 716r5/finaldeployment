@@ -1,0 +1,320 @@
+{
+  "status": "COMPLETE",
+  "source_name": "GM01.mat",
+  "identity": {
+    "model_sha256": "6985462767744b40c760ed1fff075c3c350d281aff4d705253e52fb010a8c3e4",
+    "cube_sha256": "11a051c72480df90da9ac8d4e73990ffa67e59a2b98fe409c5ef8df4978bf0b5",
+    "scene_metadata_sha256": "3965601b62de22d8eee95af8ba891fed6ce924041a0a04ac5ffb33243b81bcee",
+    "stride": 1,
+    "decision_policy": "variance-adaptive-mad-v1"
+  },
+  "source_sha256": "0d681867b18b6f9560e91c27ea11d98ab6ebffea61b5fd36e881deaf9927131c",
+  "source_original_shape": [
+    1243,
+    684,
+    224
+  ],
+  "preprocessing_contract": "hsi-138-scene-percentile-1-99-v1",
+  "python": "3.10.6 (main, Aug  1 2022, 20:38:21) [GCC 12.2.0]",
+  "numpy": "1.23.3",
+  "finished_utc": "2022-11-09T07:21:48.397623+00:00",
+  "scene_shape": [
+    1243,
+    684
+  ],
+  "classified_centers": 831042,
+  "unclassified_pixels": 19170,
+  "predicted_oil_centers": 49910,
+  "predicted_water_centers": 781132,
+  "coverage": "Every valid centre",
+  "border_pixels": 5,
+  "threshold": "oil_probability > 0.7675 => oil",
+  "adaptive_threshold": {
+    "policy": "variance-adaptive-mad-v1",
+    "intensity": "mean across 138 normalized bands",
+    "scene_median": 0.17377755045890808,
+    "scene_mad": 0.06861051917076111,
+    "mad_scale": 1.4826,
+    "robust_std": 0.10172195572257041,
+    "slope": 3.0873,
+    "intercept": 0.4535,
+    "clip": [
+      0.5,
+      0.99
+    ],
+    "probability": 0.7675461939022916,
+    "comparison": "oil_probability > threshold",
+    "calibration": "16 non-test scenes; GM01/GM02 excluded; GM03 validation included"
+  },
+  "fixed_threshold_baseline": "logit >= 0; probability >= 0.5",
+  "fingerprint": "0x101000056010407",
+  "test_split_status": "NOT_CONFIRMED_HELD_OUT",
+  "graph_coverage": [
+    {
+      "name": "subgraph_FinetunedCNN__input_0",
+      "device": "USER",
+      "op_types": [
+        "data-fix"
+      ]
+    },
+    {
+      "name": "subgraph_FinetunedCNN__FinetunedCNN_Linear_classifier__ret_27(TransferMatMulToConv2d)",
+      "device": "DPU",
+      "op_types": [
+        "const-fix",
+        "conv2d-fix",
+        "download",
+        "pool-fix",
+        "reshape-fix",
+        "upload"
+      ]
+    },
+    {
+      "name": "subgraph_FinetunedCNN__FinetunedCNN_ret_fix_",
+      "device": "CPU",
+      "op_types": [
+        "fix2float"
+      ],
+      "handled_by": "Host signed-INT8 dequantization, checked against the exact model graph"
+    }
+  ],
+  "accumulated_scan_seconds": 302.7842147099999,
+  "scan_patches_per_second": 2744.667521046148,
+  "execution_mean_ms": 0.2162371173419318,
+  "execution_min_ms": 0.207989999921665,
+  "execution_max_ms": 4.552470000021458,
+  "initialization_seconds_this_session": 15.995007569999984,
+  "input_conversion_seconds_this_session": 10.325826679999977,
+  "input_conversion_cache_reused": false,
+  "optimization": "One loaded model/runner; once-per-scene activation conversion; reused contiguous input/output buffers; 8-row checkpoints",
+  "execution_percentile_method": "0.1ms histogram intervals; values >=25.5ms share an overflow bin. Exact benchmark percentiles available separately.",
+  "timing_scope": "VART execute/wait latency; scan time includes patch copies, decoding and row checkpoints. Initialization includes source verification and input conversion. Offline laptop preprocessing and report rendering excluded. Interrupted uncommitted work is not included in resumed scan totals.",
+  "predicted_oil_fraction_of_classified_centers": 0.060057133093152935,
+  "execution_p50_interval_ms": [
+    0.2,
+    0.3
+  ],
+  "execution_p95_interval_ms": [
+    0.2,
+    0.3
+  ],
+  "oil_region_count": 535,
+  "largest_oil_regions": [
+    {
+      "pixel_count": 8144,
+      "row_min": 873,
+      "col_min": 5,
+      "row_max": 1210,
+      "col_max": 165,
+      "centroid_row": 1044.6441552062868,
+      "centroid_col": 82.16883595284872,
+      "region_id": 1
+    },
+    {
+      "pixel_count": 7654,
+      "row_min": 114,
+      "col_min": 88,
+      "row_max": 418,
+      "col_max": 260,
+      "centroid_row": 221.82427488894695,
+      "centroid_col": 187.304154690358,
+      "region_id": 2
+    },
+    {
+      "pixel_count": 3902,
+      "row_min": 5,
+      "col_min": 5,
+      "row_max": 186,
+      "col_max": 186,
+      "centroid_row": 114.1563300871348,
+      "centroid_col": 61.623782675551,
+      "region_id": 3
+    },
+    {
+      "pixel_count": 2021,
+      "row_min": 453,
+      "col_min": 401,
+      "row_max": 632,
+      "col_max": 538,
+      "centroid_row": 536.151904997526,
+      "centroid_col": 445.73775358733303,
+      "region_id": 4
+    },
+    {
+      "pixel_count": 1190,
+      "row_min": 5,
+      "col_min": 320,
+      "row_max": 125,
+      "col_max": 435,
+      "centroid_row": 60.94705882352941,
+      "centroid_col": 374.78319327731094,
+      "region_id": 5
+    },
+    {
+      "pixel_count": 1113,
+      "row_min": 5,
+      "col_min": 424,
+      "row_max": 128,
+      "col_max": 487,
+      "centroid_row": 50.35759209344115,
+      "centroid_col": 458.80053908355796,
+      "region_id": 6
+    },
+    {
+      "pixel_count": 1058,
+      "row_min": 429,
+      "col_min": 503,
+      "row_max": 522,
+      "col_max": 610,
+      "centroid_row": 478.64744801512285,
+      "centroid_col": 577.6389413988658,
+      "region_id": 7
+    },
+    {
+      "pixel_count": 835,
+      "row_min": 527,
+      "col_min": 295,
+      "row_max": 581,
+      "col_max": 415,
+      "centroid_row": 548.8191616766467,
+      "centroid_col": 343.67664670658684,
+      "region_id": 8
+    },
+    {
+      "pixel_count": 692,
+      "row_min": 221,
+      "col_min": 251,
+      "row_max": 369,
+      "col_max": 310,
+      "centroid_row": 295.46098265895955,
+      "centroid_col": 274.6921965317919,
+      "region_id": 9
+    },
+    {
+      "pixel_count": 644,
+      "row_min": 410,
+      "col_min": 179,
+      "row_max": 535,
+      "col_max": 226,
+      "centroid_row": 469.33850931677017,
+      "centroid_col": 209.12888198757764,
+      "region_id": 10
+    },
+    {
+      "pixel_count": 644,
+      "row_min": 1200,
+      "col_min": 174,
+      "row_max": 1237,
+      "col_max": 217,
+      "centroid_row": 1218.94099378882,
+      "centroid_col": 198.4114906832298,
+      "region_id": 11
+    },
+    {
+      "pixel_count": 627,
+      "row_min": 124,
+      "col_min": 372,
+      "row_max": 240,
+      "col_max": 414,
+      "centroid_row": 178.78628389154704,
+      "centroid_col": 390.60287081339715,
+      "region_id": 12
+    },
+    {
+      "pixel_count": 574,
+      "row_min": 39,
+      "col_min": 563,
+      "row_max": 114,
+      "col_max": 615,
+      "centroid_row": 74.97386759581882,
+      "centroid_col": 584.9128919860627,
+      "region_id": 13
+    },
+    {
+      "pixel_count": 560,
+      "row_min": 260,
+      "col_min": 140,
+      "row_max": 319,
+      "col_max": 176,
+      "centroid_row": 284.2857142857143,
+      "centroid_col": 159.60714285714286,
+      "region_id": 14
+    },
+    {
+      "pixel_count": 523,
+      "row_min": 247,
+      "col_min": 441,
+      "row_max": 317,
+      "col_max": 486,
+      "centroid_row": 275.4397705544933,
+      "centroid_col": 466.7782026768642,
+      "region_id": 15
+    },
+    {
+      "pixel_count": 473,
+      "row_min": 205,
+      "col_min": 486,
+      "row_max": 261,
+      "col_max": 520,
+      "centroid_row": 231.67441860465115,
+      "centroid_col": 503.0232558139535,
+      "region_id": 16
+    },
+    {
+      "pixel_count": 428,
+      "row_min": 297,
+      "col_min": 598,
+      "row_max": 328,
+      "col_max": 642,
+      "centroid_row": 310.4672897196262,
+      "centroid_col": 618.0911214953271,
+      "region_id": 17
+    },
+    {
+      "pixel_count": 428,
+      "row_min": 483,
+      "col_min": 259,
+      "row_max": 533,
+      "col_max": 314,
+      "centroid_row": 505.1985981308411,
+      "centroid_col": 288.7266355140187,
+      "region_id": 18
+    },
+    {
+      "pixel_count": 416,
+      "row_min": 561,
+      "col_min": 617,
+      "row_max": 629,
+      "col_max": 654,
+      "centroid_row": 593.5072115384615,
+      "centroid_col": 634.0408653846154,
+      "region_id": 19
+    },
+    {
+      "pixel_count": 402,
+      "row_min": 128,
+      "col_min": 214,
+      "row_max": 171,
+      "col_max": 255,
+      "centroid_row": 143.04228855721394,
+      "centroid_col": 238.03482587064676,
+      "region_id": 20
+    }
+  ],
+  "coordinate_convention": "zero-based row,col; top-left origin; bounding-box maxima inclusive; x=col,y=row",
+  "region_connectivity": 8,
+  "region_note": "Regions are model predictions, not verified physical spill boundaries or geographic coordinates",
+  "scene_metrics": {
+    "evaluated_centers": 831042,
+    "true_oil_predicted_oil": 26136,
+    "true_water_predicted_water": 778256,
+    "true_water_predicted_oil": 23774,
+    "true_oil_predicted_water": 2876,
+    "accuracy": 0.9679318253469741,
+    "oil_precision": 0.5236625926668003,
+    "oil_recall": 0.9008686060940301,
+    "oil_f1": 0.6623248270444236,
+    "oil_iou": 0.4951312848103664,
+    "interpretation": "Scene agreement only; an independent held-out split has not been established"
+  }
+}

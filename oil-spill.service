@@ -1,0 +1,21 @@
+[Unit]
+Description=PlanetSpark hyperspectral CNN boot prediction and scene map
+After=local-fs.target
+RequiresMountsFor=/opt/oil-spill /var/lib/oil-spill
+
+[Service]
+Type=oneshot
+User=root
+WorkingDirectory=/opt/oil-spill
+Environment=PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+Environment=PYTHONUNBUFFERED=1
+Environment=XLNX_ENABLE_FINGERPRINT_CHECK=1
+Environment=DEBUG_DPU_RUNNER_DRY_RUN=0
+ExecStart=/opt/oil-spill/start.sh
+RemainAfterExit=yes
+TimeoutStartSec=24h
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target

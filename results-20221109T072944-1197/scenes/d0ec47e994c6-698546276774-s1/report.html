@@ -1,0 +1,313 @@
+<!doctype html><html lang="en"><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1"><title>Oil/water detection</title>
+<style>body{font:16px system-ui,sans-serif;max-width:1200px;margin:32px auto;padding:0 20px;background:#f5f7fa;color:#142431}h1{font-size:28px}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px}figure{margin:0;background:white;padding:14px;border-radius:12px}img{width:100%;height:auto;image-rendering:pixelated}figcaption{margin:10px 0}.notice{background:#fff1ce;padding:14px;border-radius:8px}pre{white-space:pre-wrap;background:white;padding:16px;overflow-wrap:anywhere}a{color:#075985}</style>
+<h1>Oil/water detection: GM02.mat</h1><p>Actual FPGA model predictions at the classified patch centres.</p>
+<p><b style="color:#eb4637">Red = predicted oil</b> · <b style="color:#1585b3">Blue = predicted water</b> · Grey = unclassified.</p>
+<p class="notice">The five-pixel border is unclassified. The scene preview is a three-band composite of the actual hyperspectral data. Scene metrics are not a confirmed independent test-set result.</p>
+<p><b>Predicted oil:</b> 478,289 centres (39.09% of classified centres). <b>Predicted water:</b> 745,375. <b>Unclassified:</b> 24,750. <b>Oil regions:</b> 4,236.</p><p><b>Measured scan time:</b> 449.39 seconds. <b>Mean FPGA inference call:</b> 0.2188 ms per patch.</p>
+<p id="coordinates">Click any image to read its zero-based pixel coordinates.</p>
+<div class="grid"><figure><img src="scene_preview.png" alt="Real scene composite"><figcaption>Input scene composite</figcaption></figure><figure><img src="oil_water_map.png" alt="Oil and water predictions"><figcaption>Oil/water map</figcaption></figure><figure><img src="overlay.png" alt="Predictions overlaid on scene"><figcaption>Prediction overlay</figcaption></figure></div>
+<p><a href="summary.json">Results and scene metrics</a> · <a href="oil_regions.csv">Oil-region pixel coordinates</a> · <a href="oil_probability.npy">Per-centre oil scores</a> · <a href="classes.npy">Classes: 0 water, 1 oil, 255 unclassified</a></p>
+<h2>Largest predicted oil regions</h2><p>Zero-based row/column; inclusive bounds; not geographic coordinates.</p><table><tr><th>Region</th><th>Pixels</th><th>Top-left (row,col)</th><th>Bottom-right (row,col)</th><th>Centroid (row,col)</th></tr><tr><td>1</td><td>432549</td><td>(5, 5)</td><td>(1708, 693)</td><td>(563.79, 405.93)</td></tr><tr><td>2</td><td>2548</td><td>(1404, 341)</td><td>(1482, 453)</td><td>(1440.61, 381.46)</td></tr><tr><td>3</td><td>1679</td><td>(1534, 362)</td><td>(1585, 476)</td><td>(1563.14, 420.60)</td></tr><tr><td>4</td><td>1339</td><td>(1713, 424)</td><td>(1780, 509)</td><td>(1753.43, 460.53)</td></tr><tr><td>5</td><td>588</td><td>(1440, 467)</td><td>(1488, 511)</td><td>(1459.67, 491.21)</td></tr><tr><td>6</td><td>391</td><td>(732, 608)</td><td>(770, 639)</td><td>(751.20, 622.33)</td></tr><tr><td>7</td><td>356</td><td>(411, 124)</td><td>(473, 145)</td><td>(440.78, 133.52)</td></tr><tr><td>8</td><td>304</td><td>(808, 571)</td><td>(847, 605)</td><td>(831.27, 585.84)</td></tr><tr><td>9</td><td>303</td><td>(1473, 418)</td><td>(1496, 465)</td><td>(1486.87, 446.39)</td></tr><tr><td>10</td><td>288</td><td>(903, 618)</td><td>(941, 637)</td><td>(923.78, 628.52)</td></tr><tr><td>11</td><td>274</td><td>(5, 644)</td><td>(34, 672)</td><td>(17.27, 658.05)</td></tr><tr><td>12</td><td>271</td><td>(1639, 370)</td><td>(1672, 400)</td><td>(1654.61, 385.04)</td></tr><tr><td>13</td><td>263</td><td>(524, 88)</td><td>(551, 114)</td><td>(537.62, 101.57)</td></tr><tr><td>14</td><td>260</td><td>(679, 632)</td><td>(707, 677)</td><td>(693.53, 649.48)</td></tr><tr><td>15</td><td>254</td><td>(1367, 334)</td><td>(1386, 363)</td><td>(1375.23, 348.46)</td></tr><tr><td>16</td><td>239</td><td>(1315, 432)</td><td>(1338, 473)</td><td>(1326.45, 452.07)</td></tr><tr><td>17</td><td>220</td><td>(716, 632)</td><td>(740, 655)</td><td>(727.48, 643.15)</td></tr><tr><td>18</td><td>219</td><td>(921, 584)</td><td>(939, 611)</td><td>(931.54, 597.07)</td></tr><tr><td>19</td><td>218</td><td>(239, 299)</td><td>(255, 339)</td><td>(246.59, 321.84)</td></tr><tr><td>20</td><td>214</td><td>(60, 189)</td><td>(86, 215)</td><td>(70.89, 201.21)</td></tr></table>
+<details><summary>Complete recorded result</summary><pre>{
+  &quot;status&quot;: &quot;COMPLETE&quot;,
+  &quot;source_name&quot;: &quot;GM02.mat&quot;,
+  &quot;identity&quot;: {
+    &quot;model_sha256&quot;: &quot;6985462767744b40c760ed1fff075c3c350d281aff4d705253e52fb010a8c3e4&quot;,
+    &quot;cube_sha256&quot;: &quot;b04c9ed0bb232aedfe88788f061263d7e409f5fba4118a1d781c0fa3fc6e8dcc&quot;,
+    &quot;scene_metadata_sha256&quot;: &quot;d0ec47e994c6f2621cd0b5f7a607715a79c6dbfdb7f4164b44d346484224a68c&quot;,
+    &quot;stride&quot;: 1
+  },
+  &quot;source_sha256&quot;: &quot;d3c59c083f2f766f3e20c259e50a6ab32e487cc513b4a4b1d5d2fbc6d5fed229&quot;,
+  &quot;source_original_shape&quot;: [
+    1786,
+    699,
+    224
+  ],
+  &quot;preprocessing_contract&quot;: &quot;hsi-138-scene-percentile-1-99-v1&quot;,
+  &quot;python&quot;: &quot;3.10.6 (main, Aug  1 2022, 20:38:21) [GCC 12.2.0]&quot;,
+  &quot;numpy&quot;: &quot;1.23.3&quot;,
+  &quot;finished_utc&quot;: &quot;2022-11-09T05:47:13.230171+00:00&quot;,
+  &quot;scene_shape&quot;: [
+    1786,
+    699
+  ],
+  &quot;classified_centers&quot;: 1223664,
+  &quot;unclassified_pixels&quot;: 24750,
+  &quot;predicted_oil_centers&quot;: 478289,
+  &quot;predicted_water_centers&quot;: 745375,
+  &quot;coverage&quot;: &quot;Every valid centre&quot;,
+  &quot;border_pixels&quot;: 5,
+  &quot;threshold&quot;: &quot;logit &gt;= 0 =&gt; oil&quot;,
+  &quot;fingerprint&quot;: &quot;0x101000056010407&quot;,
+  &quot;test_split_status&quot;: &quot;NOT_CONFIRMED_HELD_OUT&quot;,
+  &quot;graph_coverage&quot;: [
+    {
+      &quot;name&quot;: &quot;subgraph_FinetunedCNN__input_0&quot;,
+      &quot;device&quot;: &quot;USER&quot;,
+      &quot;op_types&quot;: [
+        &quot;data-fix&quot;
+      ]
+    },
+    {
+      &quot;name&quot;: &quot;subgraph_FinetunedCNN__FinetunedCNN_Linear_classifier__ret_27(TransferMatMulToConv2d)&quot;,
+      &quot;device&quot;: &quot;DPU&quot;,
+      &quot;op_types&quot;: [
+        &quot;const-fix&quot;,
+        &quot;conv2d-fix&quot;,
+        &quot;download&quot;,
+        &quot;pool-fix&quot;,
+        &quot;reshape-fix&quot;,
+        &quot;upload&quot;
+      ]
+    },
+    {
+      &quot;name&quot;: &quot;subgraph_FinetunedCNN__FinetunedCNN_ret_fix_&quot;,
+      &quot;device&quot;: &quot;CPU&quot;,
+      &quot;op_types&quot;: [
+        &quot;fix2float&quot;
+      ],
+      &quot;handled_by&quot;: &quot;Host signed-INT8 dequantization, checked against the exact model graph&quot;
+    }
+  ],
+  &quot;accumulated_scan_seconds&quot;: 449.39417698,
+  &quot;scan_patches_per_second&quot;: 2722.919126863672,
+  &quot;execution_mean_ms&quot;: 0.21880115002159475,
+  &quot;execution_min_ms&quot;: 0.2093499999773485,
+  &quot;execution_max_ms&quot;: 10.95307999992201,
+  &quot;initialization_seconds_this_session&quot;: 21.120964550000053,
+  &quot;input_conversion_seconds_this_session&quot;: 15.60862469999995,
+  &quot;input_conversion_cache_reused&quot;: false,
+  &quot;optimization&quot;: &quot;One loaded model/runner; once-per-scene activation conversion; reused contiguous input/output buffers; 8-row checkpoints&quot;,
+  &quot;execution_percentile_method&quot;: &quot;0.1ms histogram intervals; values &gt;=25.5ms share an overflow bin. Exact benchmark percentiles available separately.&quot;,
+  &quot;timing_scope&quot;: &quot;VART execute/wait latency; scan time includes patch copies, decoding and row checkpoints. Initialization includes source verification and input conversion. Offline laptop preprocessing and report rendering excluded. Interrupted uncommitted work is not included in resumed scan totals.&quot;,
+  &quot;predicted_oil_fraction_of_classified_centers&quot;: 0.3908662835549628,
+  &quot;execution_p50_interval_ms&quot;: [
+    0.2,
+    0.3
+  ],
+  &quot;execution_p95_interval_ms&quot;: [
+    0.2,
+    0.3
+  ],
+  &quot;oil_region_count&quot;: 4236,
+  &quot;largest_oil_regions&quot;: [
+    {
+      &quot;pixel_count&quot;: 432549,
+      &quot;row_min&quot;: 5,
+      &quot;col_min&quot;: 5,
+      &quot;row_max&quot;: 1708,
+      &quot;col_max&quot;: 693,
+      &quot;centroid_row&quot;: 563.7948324929661,
+      &quot;centroid_col&quot;: 405.92528707730224,
+      &quot;region_id&quot;: 1
+    },
+    {
+      &quot;pixel_count&quot;: 2548,
+      &quot;row_min&quot;: 1404,
+      &quot;col_min&quot;: 341,
+      &quot;row_max&quot;: 1482,
+      &quot;col_max&quot;: 453,
+      &quot;centroid_row&quot;: 1440.60557299843,
+      &quot;centroid_col&quot;: 381.4587912087912,
+      &quot;region_id&quot;: 2
+    },
+    {
+      &quot;pixel_count&quot;: 1679,
+      &quot;row_min&quot;: 1534,
+      &quot;col_min&quot;: 362,
+      &quot;row_max&quot;: 1585,
+      &quot;col_max&quot;: 476,
+      &quot;centroid_row&quot;: 1563.139964264443,
+      &quot;centroid_col&quot;: 420.60452650387134,
+      &quot;region_id&quot;: 3
+    },
+    {
+      &quot;pixel_count&quot;: 1339,
+      &quot;row_min&quot;: 1713,
+      &quot;col_min&quot;: 424,
+      &quot;row_max&quot;: 1780,
+      &quot;col_max&quot;: 509,
+      &quot;centroid_row&quot;: 1753.427931292009,
+      &quot;centroid_col&quot;: 460.53174010455564,
+      &quot;region_id&quot;: 4
+    },
+    {
+      &quot;pixel_count&quot;: 588,
+      &quot;row_min&quot;: 1440,
+      &quot;col_min&quot;: 467,
+      &quot;row_max&quot;: 1488,
+      &quot;col_max&quot;: 511,
+      &quot;centroid_row&quot;: 1459.6734693877552,
+      &quot;centroid_col&quot;: 491.2091836734694,
+      &quot;region_id&quot;: 5
+    },
+    {
+      &quot;pixel_count&quot;: 391,
+      &quot;row_min&quot;: 732,
+      &quot;col_min&quot;: 608,
+      &quot;row_max&quot;: 770,
+      &quot;col_max&quot;: 639,
+      &quot;centroid_row&quot;: 751.1969309462916,
+      &quot;centroid_col&quot;: 622.3299232736573,
+      &quot;region_id&quot;: 6
+    },
+    {
+      &quot;pixel_count&quot;: 356,
+      &quot;row_min&quot;: 411,
+      &quot;col_min&quot;: 124,
+      &quot;row_max&quot;: 473,
+      &quot;col_max&quot;: 145,
+      &quot;centroid_row&quot;: 440.7808988764045,
+      &quot;centroid_col&quot;: 133.52247191011236,
+      &quot;region_id&quot;: 7
+    },
+    {
+      &quot;pixel_count&quot;: 304,
+      &quot;row_min&quot;: 808,
+      &quot;col_min&quot;: 571,
+      &quot;row_max&quot;: 847,
+      &quot;col_max&quot;: 605,
+      &quot;centroid_row&quot;: 831.266447368421,
+      &quot;centroid_col&quot;: 585.8421052631579,
+      &quot;region_id&quot;: 8
+    },
+    {
+      &quot;pixel_count&quot;: 303,
+      &quot;row_min&quot;: 1473,
+      &quot;col_min&quot;: 418,
+      &quot;row_max&quot;: 1496,
+      &quot;col_max&quot;: 465,
+      &quot;centroid_row&quot;: 1486.874587458746,
+      &quot;centroid_col&quot;: 446.38613861386136,
+      &quot;region_id&quot;: 9
+    },
+    {
+      &quot;pixel_count&quot;: 288,
+      &quot;row_min&quot;: 903,
+      &quot;col_min&quot;: 618,
+      &quot;row_max&quot;: 941,
+      &quot;col_max&quot;: 637,
+      &quot;centroid_row&quot;: 923.7777777777778,
+      &quot;centroid_col&quot;: 628.5243055555555,
+      &quot;region_id&quot;: 10
+    },
+    {
+      &quot;pixel_count&quot;: 274,
+      &quot;row_min&quot;: 5,
+      &quot;col_min&quot;: 644,
+      &quot;row_max&quot;: 34,
+      &quot;col_max&quot;: 672,
+      &quot;centroid_row&quot;: 17.266423357664234,
+      &quot;centroid_col&quot;: 658.0547445255474,
+      &quot;region_id&quot;: 11
+    },
+    {
+      &quot;pixel_count&quot;: 271,
+      &quot;row_min&quot;: 1639,
+      &quot;col_min&quot;: 370,
+      &quot;row_max&quot;: 1672,
+      &quot;col_max&quot;: 400,
+      &quot;centroid_row&quot;: 1654.6051660516605,
+      &quot;centroid_col&quot;: 385.04428044280445,
+      &quot;region_id&quot;: 12
+    },
+    {
+      &quot;pixel_count&quot;: 263,
+      &quot;row_min&quot;: 524,
+      &quot;col_min&quot;: 88,
+      &quot;row_max&quot;: 551,
+      &quot;col_max&quot;: 114,
+      &quot;centroid_row&quot;: 537.6235741444867,
+      &quot;centroid_col&quot;: 101.57414448669202,
+      &quot;region_id&quot;: 13
+    },
+    {
+      &quot;pixel_count&quot;: 260,
+      &quot;row_min&quot;: 679,
+      &quot;col_min&quot;: 632,
+      &quot;row_max&quot;: 707,
+      &quot;col_max&quot;: 677,
+      &quot;centroid_row&quot;: 693.5346153846153,
+      &quot;centroid_col&quot;: 649.4769230769231,
+      &quot;region_id&quot;: 14
+    },
+    {
+      &quot;pixel_count&quot;: 254,
+      &quot;row_min&quot;: 1367,
+      &quot;col_min&quot;: 334,
+      &quot;row_max&quot;: 1386,
+      &quot;col_max&quot;: 363,
+      &quot;centroid_row&quot;: 1375.2283464566929,
+      &quot;centroid_col&quot;: 348.46456692913387,
+      &quot;region_id&quot;: 15
+    },
+    {
+      &quot;pixel_count&quot;: 239,
+      &quot;row_min&quot;: 1315,
+      &quot;col_min&quot;: 432,
+      &quot;row_max&quot;: 1338,
+      &quot;col_max&quot;: 473,
+      &quot;centroid_row&quot;: 1326.44769874477,
+      &quot;centroid_col&quot;: 452.07112970711296,
+      &quot;region_id&quot;: 16
+    },
+    {
+      &quot;pixel_count&quot;: 220,
+      &quot;row_min&quot;: 716,
+      &quot;col_min&quot;: 632,
+      &quot;row_max&quot;: 740,
+      &quot;col_max&quot;: 655,
+      &quot;centroid_row&quot;: 727.4818181818182,
+      &quot;centroid_col&quot;: 643.1545454545454,
+      &quot;region_id&quot;: 17
+    },
+    {
+      &quot;pixel_count&quot;: 219,
+      &quot;row_min&quot;: 921,
+      &quot;col_min&quot;: 584,
+      &quot;row_max&quot;: 939,
+      &quot;col_max&quot;: 611,
+      &quot;centroid_row&quot;: 931.5433789954338,
+      &quot;centroid_col&quot;: 597.0730593607306,
+      &quot;region_id&quot;: 18
+    },
+    {
+      &quot;pixel_count&quot;: 218,
+      &quot;row_min&quot;: 239,
+      &quot;col_min&quot;: 299,
+      &quot;row_max&quot;: 255,
+      &quot;col_max&quot;: 339,
+      &quot;centroid_row&quot;: 246.58715596330276,
+      &quot;centroid_col&quot;: 321.8394495412844,
+      &quot;region_id&quot;: 19
+    },
+    {
+      &quot;pixel_count&quot;: 214,
+      &quot;row_min&quot;: 60,
+      &quot;col_min&quot;: 189,
+      &quot;row_max&quot;: 86,
+      &quot;col_max&quot;: 215,
+      &quot;centroid_row&quot;: 70.88785046728972,
+      &quot;centroid_col&quot;: 201.21495327102804,
+      &quot;region_id&quot;: 20
+    }
+  ],
+  &quot;coordinate_convention&quot;: &quot;zero-based row,col; top-left origin; bounding-box maxima inclusive; x=col,y=row&quot;,
+  &quot;region_connectivity&quot;: 8,
+  &quot;region_note&quot;: &quot;Regions are model predictions, not verified physical spill boundaries or geographic coordinates&quot;,
+  &quot;scene_metrics&quot;: {
+    &quot;evaluated_centers&quot;: 1223664,
+    &quot;true_oil_predicted_oil&quot;: 11940,
+    &quot;true_water_predicted_water&quot;: 745243,
+    &quot;true_water_predicted_oil&quot;: 466349,
+    &quot;true_oil_predicted_water&quot;: 132,
+    &quot;accuracy&quot;: 0.6187834242079525,
+    &quot;oil_precision&quot;: 0.02496398620917479,
+    &quot;oil_recall&quot;: 0.989065606361829,
+    &quot;oil_f1&quot;: 0.0486988157704222,
+    &quot;oil_iou&quot;: 0.024957098455126343,
+    &quot;interpretation&quot;: &quot;Scene agreement only; an independent held-out split has not been established&quot;
+  }
+}</pre></details>
+<script>document.querySelectorAll('img').forEach(image=>image.addEventListener('click',event=>{const b=image.getBoundingClientRect();const col=Math.min(image.naturalWidth-1,Math.max(0,Math.floor((event.clientX-b.left)*image.naturalWidth/b.width)));const row=Math.min(image.naturalHeight-1,Math.max(0,Math.floor((event.clientY-b.top)*image.naturalHeight/b.height)));document.getElementById('coordinates').textContent='Pixel row '+row+', column '+col+' (x='+col+', y='+row+'). Read its predicted class from the oil/water map colour.';}));</script></html>

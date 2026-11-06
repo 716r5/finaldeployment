@@ -1,0 +1,63 @@
+{
+  "started_utc": "2022-11-09T07:16:24.373329+00:00",
+  "action": "boot",
+  "status": "PASS",
+  "release_manifest_sha256": "e2f733554790598aa5f739b92d2d25de67df793b06b9d979743856ad14d250b9",
+  "dpu_query": "{\n    \"DPU IP Spec\":{\n        \"DPU Core Count\":2,\n        \"IP version\":\"v4.1.0\",\n        \"generation timestamp\":\"2023-02-21 21-30-00\",\n        \"git commit id\":\"7d32c41\",\n        \"git commit time\":2023022121,\n        \"regmap\":\"1to1 version\"\n    },\n    \"VAI Version\":{\n        \"libvart-runner.so\":\"Xilinx vart-runner Version: 3.5.0-b7953a2a9f60e23efdfced5c186328dd1449665c  2023-09-12-23:21:45 \",\n        \"libvitis_ai_library-dpu_task.so\":\"Advanced Micro Devices vitis_ai_library dpu_task Version: 3.5.0-b7953a2a9f60e23efdfced5c186328dd1449665c  2023-06-29 03:20:28 [UTC] \",\n        \"libxir.so\":\"Xilinx xir Version: xir-b7953a2a9f60e23efdfced5c186328dd1449665c 2023-09-12-22:56:08\",\n        \"target_factory\":\"target-factory.3.5.0 b7953a2a9f60e23efdfced5c186328dd1449665c\"\n    },\n    \"kernels\":[\n        {\n            \"AIE Frequency (Hz)\":0,\n            \"DPU Arch\":\"DPUCZDX8G_ISA1_B4096\",\n            \"DPU Frequency (MHz)\":300,\n            \"IP Type\":\"DPU\",\n            \"Load Parallel\":2,\n            \"Load augmentation\":\"enable\",\n            \"Load minus mean\":\"disable\",\n            \"Save Parallel\":2,\n            \"XRT Frequency (MHz)\":300,\n            \"cu_addr\":\"0xa0010000\",\n            \"cu_handle\":\"0xaaaaef84e520\",\n            \"cu_idx\":0,\n            \"cu_mask\":2,\n            \"cu_name\":\"DPUCZDX8G:DPUCZDX8G_1\",\n            \"device_id\":0,\n            \"fingerprint\":\"0x101000056010407\",\n            \"name\":\"DPU Core 0\"\n        },\n        {\n            \"AIE Frequency (Hz)\":0,\n            \"DPU Arch\":\"DPUCZDX8G_ISA1_B4096\",\n            \"DPU Frequency (MHz)\":300,\n            \"IP Type\":\"DPU\",\n            \"Load Parallel\":2,\n            \"Load augmentation\":\"enable\",\n            \"Load minus mean\":\"disable\",\n            \"Save Parallel\":2,\n            \"XRT Frequency (MHz)\":300,\n            \"cu_addr\":\"0xa0011000\",\n            \"cu_handle\":\"0xaaaaef854d60\",\n            \"cu_idx\":1,\n            \"cu_mask\":1,\n            \"cu_name\":\"DPUCZDX8G:DPUCZDX8G_2\",\n            \"device_id\":0,\n            \"fingerprint\":\"0x101000056010407\",\n            \"name\":\"DPU Core 1\"\n        }\n    ]\n}\n",
+  "python": "3.10.6 (main, Aug  1 2022, 20:38:21) [GCC 12.2.0]",
+  "platform": "Linux-6.1.30-xilinx-v2023.1-aarch64-with-glibc2.36",
+  "model_sha256": "6985462767744b40c760ed1fff075c3c350d281aff4d705253e52fb010a8c3e4",
+  "input_sha256": "08209a81126ceeea44b6b50e1e9c20604667fa2ad033b43ae14e17983951470a",
+  "fingerprint": "0x101000056010407",
+  "input_shape": [
+    1,
+    11,
+    11,
+    138
+  ],
+  "output_shape": [
+    1
+  ],
+  "output_step": 0.125,
+  "graph_coverage": [
+    {
+      "name": "subgraph_FinetunedCNN__input_0",
+      "device": "USER",
+      "op_types": [
+        "data-fix"
+      ]
+    },
+    {
+      "name": "subgraph_FinetunedCNN__FinetunedCNN_Linear_classifier__ret_27(TransferMatMulToConv2d)",
+      "device": "DPU",
+      "op_types": [
+        "const-fix",
+        "conv2d-fix",
+        "download",
+        "pool-fix",
+        "reshape-fix",
+        "upload"
+      ]
+    },
+    {
+      "name": "subgraph_FinetunedCNN__FinetunedCNN_ret_fix_",
+      "device": "CPU",
+      "op_types": [
+        "fix2float"
+      ],
+      "handled_by": "Host signed-INT8 dequantization, checked against the exact model graph"
+    }
+  ],
+  "numpy_version": "1.23.3",
+  "patch_preparation_ms": 54.38984999989316,
+  "logit": -16.0,
+  "oil_probability": 1.12535162055095e-07,
+  "prediction": "water",
+  "execution_ms": 0.4250200000797122,
+  "reference_check": "PASS",
+  "ground_truth": "water",
+  "ground_truth_match": true,
+  "finished_utc": "2022-11-09T07:16:26.189172+00:00",
+  "process_elapsed_ms": 1815.8307700000478,
+  "boot_id": "664a74bf-b15e-4618-96e5-73411b2c30aa"
+}

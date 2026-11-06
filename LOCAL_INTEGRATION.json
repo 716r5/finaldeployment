@@ -1,0 +1,25 @@
+{
+  "status": "PASS",
+  "real_images": [
+    "GM17.mat",
+    "GM16.mat"
+  ],
+  "checks": [
+    "Real-model/two-real-scene release sealed and verified",
+    "Initial queue validates two different actual HSI scenes",
+    "Actual original sample validates in both supported tensor layouts",
+    "Real prepared-image import, copy verification and idempotent repeated import pass",
+    "A changed real sample metadata copy is rejected; restoring exact bytes passes",
+    "Actual hardware-unavailable doctor fails clearly; no fallback prediction occurs",
+    "Native Windows PREPARE.cmd validates an already prepared real release and reports READY"
+  ],
+  "compiled_model_sha256": "6985462767744b40c760ed1fff075c3c350d281aff4d705253e52fb010a8c3e4",
+  "original_sample_shape": [
+    138,
+    11,
+    11
+  ],
+  "hardware_inference_performed": false,
+  "hardware_unavailable_error": "FileNotFoundError: [WinError 2] The system cannot find the file specified",
+  "meaning": "Real input/package integration passed; actual FPGA inference, boot and maps are still pending"
+}

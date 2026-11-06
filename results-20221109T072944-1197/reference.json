@@ -1,0 +1,9 @@
+{
+  "model_sha256": "6985462767744b40c760ed1fff075c3c350d281aff4d705253e52fb010a8c3e4",
+  "input_sha256": "08209a81126ceeea44b6b50e1e9c20604667fa2ad033b43ae14e17983951470a",
+  "prediction": "water",
+  "logit": -16.0,
+  "tolerance": 0.125,
+  "created_utc": "2022-11-09T05:33:52.577170+00:00",
+  "meaning": "Repeatability baseline from real board execution; not held-out accuracy or independent numerical validation"
+}

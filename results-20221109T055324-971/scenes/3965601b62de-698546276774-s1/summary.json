@@ -1,0 +1,301 @@
+{
+  "status": "COMPLETE",
+  "source_name": "GM01.mat",
+  "identity": {
+    "model_sha256": "6985462767744b40c760ed1fff075c3c350d281aff4d705253e52fb010a8c3e4",
+    "cube_sha256": "11a051c72480df90da9ac8d4e73990ffa67e59a2b98fe409c5ef8df4978bf0b5",
+    "scene_metadata_sha256": "3965601b62de22d8eee95af8ba891fed6ce924041a0a04ac5ffb33243b81bcee",
+    "stride": 1
+  },
+  "source_sha256": "0d681867b18b6f9560e91c27ea11d98ab6ebffea61b5fd36e881deaf9927131c",
+  "source_original_shape": [
+    1243,
+    684,
+    224
+  ],
+  "preprocessing_contract": "hsi-138-scene-percentile-1-99-v1",
+  "python": "3.10.6 (main, Aug  1 2022, 20:38:21) [GCC 12.2.0]",
+  "numpy": "1.23.3",
+  "finished_utc": "2022-11-09T05:39:19.477418+00:00",
+  "scene_shape": [
+    1243,
+    684
+  ],
+  "classified_centers": 831042,
+  "unclassified_pixels": 19170,
+  "predicted_oil_centers": 71928,
+  "predicted_water_centers": 759114,
+  "coverage": "Every valid centre",
+  "border_pixels": 5,
+  "threshold": "logit >= 0 => oil",
+  "fingerprint": "0x101000056010407",
+  "test_split_status": "NOT_CONFIRMED_HELD_OUT",
+  "graph_coverage": [
+    {
+      "name": "subgraph_FinetunedCNN__input_0",
+      "device": "USER",
+      "op_types": [
+        "data-fix"
+      ]
+    },
+    {
+      "name": "subgraph_FinetunedCNN__FinetunedCNN_Linear_classifier__ret_27(TransferMatMulToConv2d)",
+      "device": "DPU",
+      "op_types": [
+        "const-fix",
+        "conv2d-fix",
+        "download",
+        "pool-fix",
+        "reshape-fix",
+        "upload"
+      ]
+    },
+    {
+      "name": "subgraph_FinetunedCNN__FinetunedCNN_ret_fix_",
+      "device": "CPU",
+      "op_types": [
+        "fix2float"
+      ],
+      "handled_by": "Host signed-INT8 dequantization, checked against the exact model graph"
+    }
+  ],
+  "accumulated_scan_seconds": 305.88802237000004,
+  "scan_patches_per_second": 2716.8177216000217,
+  "execution_mean_ms": 0.21903067440630816,
+  "execution_min_ms": 0.2094800000804753,
+  "execution_max_ms": 4.799929999990127,
+  "initialization_seconds_this_session": 15.373673230000009,
+  "input_conversion_seconds_this_session": 10.302897180000002,
+  "input_conversion_cache_reused": false,
+  "optimization": "One loaded model/runner; once-per-scene activation conversion; reused contiguous input/output buffers; 8-row checkpoints",
+  "execution_percentile_method": "0.1ms histogram intervals; values >=25.5ms share an overflow bin. Exact benchmark percentiles available separately.",
+  "timing_scope": "VART execute/wait latency; scan time includes patch copies, decoding and row checkpoints. Initialization includes source verification and input conversion. Offline laptop preprocessing and report rendering excluded. Interrupted uncommitted work is not included in resumed scan totals.",
+  "predicted_oil_fraction_of_classified_centers": 0.08655158223050098,
+  "execution_p50_interval_ms": [
+    0.2,
+    0.3
+  ],
+  "execution_p95_interval_ms": [
+    0.2,
+    0.3
+  ],
+  "oil_region_count": 658,
+  "largest_oil_regions": [
+    {
+      "pixel_count": 13525,
+      "row_min": 112,
+      "col_min": 66,
+      "row_max": 418,
+      "col_max": 263,
+      "centroid_row": 228.8093900184843,
+      "centroid_col": 186.3973382624769,
+      "region_id": 1
+    },
+    {
+      "pixel_count": 10706,
+      "row_min": 850,
+      "col_min": 5,
+      "row_max": 1211,
+      "col_max": 170,
+      "centroid_row": 1036.5257799364842,
+      "centroid_col": 81.48374743134691,
+      "region_id": 2
+    },
+    {
+      "pixel_count": 5365,
+      "row_min": 5,
+      "col_min": 5,
+      "row_max": 186,
+      "col_max": 187,
+      "centroid_row": 116.27306616961789,
+      "centroid_col": 65.81789375582478,
+      "region_id": 3
+    },
+    {
+      "pixel_count": 2341,
+      "row_min": 452,
+      "col_min": 401,
+      "row_max": 635,
+      "col_max": 538,
+      "centroid_row": 537.8351131994874,
+      "centroid_col": 445.21956428876547,
+      "region_id": 4
+    },
+    {
+      "pixel_count": 2323,
+      "row_min": 5,
+      "col_min": 319,
+      "row_max": 245,
+      "col_max": 436,
+      "centroid_row": 103.07102884201464,
+      "centroid_col": 379.37150236762807,
+      "region_id": 5
+    },
+    {
+      "pixel_count": 1763,
+      "row_min": 5,
+      "col_min": 422,
+      "row_max": 192,
+      "col_max": 487,
+      "centroid_row": 78.45036868973341,
+      "centroid_col": 455.79013045944413,
+      "region_id": 6
+    },
+    {
+      "pixel_count": 1321,
+      "row_min": 220,
+      "col_min": 245,
+      "row_max": 437,
+      "col_max": 311,
+      "centroid_row": 327.64042392127175,
+      "centroid_col": 270.79182437547314,
+      "region_id": 7
+    },
+    {
+      "pixel_count": 1262,
+      "row_min": 428,
+      "col_min": 503,
+      "row_max": 522,
+      "col_max": 611,
+      "centroid_row": 478.27337559429475,
+      "centroid_col": 577.2408874801902,
+      "region_id": 8
+    },
+    {
+      "pixel_count": 1190,
+      "row_min": 565,
+      "col_min": 77,
+      "row_max": 648,
+      "col_max": 231,
+      "centroid_row": 605.3882352941176,
+      "centroid_col": 173.07310924369747,
+      "region_id": 9
+    },
+    {
+      "pixel_count": 1106,
+      "row_min": 1186,
+      "col_min": 168,
+      "row_max": 1237,
+      "col_max": 218,
+      "centroid_row": 1215.107594936709,
+      "centroid_col": 196.10849909584087,
+      "region_id": 10
+    },
+    {
+      "pixel_count": 1089,
+      "row_min": 527,
+      "col_min": 295,
+      "row_max": 596,
+      "col_max": 416,
+      "centroid_row": 550.6446280991736,
+      "centroid_col": 342.4600550964187,
+      "region_id": 11
+    },
+    {
+      "pixel_count": 1061,
+      "row_min": 516,
+      "col_min": 144,
+      "row_max": 594,
+      "col_max": 299,
+      "centroid_row": 558.1809613572102,
+      "centroid_col": 216.23751178133836,
+      "region_id": 12
+    },
+    {
+      "pixel_count": 915,
+      "row_min": 281,
+      "col_min": 595,
+      "row_max": 333,
+      "col_max": 664,
+      "centroid_row": 304.5978142076503,
+      "centroid_col": 624.7825136612022,
+      "region_id": 13
+    },
+    {
+      "pixel_count": 912,
+      "row_min": 5,
+      "col_min": 562,
+      "row_max": 115,
+      "col_max": 616,
+      "centroid_row": 63.20175438596491,
+      "centroid_col": 584.4111842105264,
+      "region_id": 14
+    },
+    {
+      "pixel_count": 848,
+      "row_min": 204,
+      "col_min": 454,
+      "row_max": 262,
+      "col_max": 521,
+      "centroid_row": 230.24528301886792,
+      "centroid_col": 491.8832547169811,
+      "region_id": 15
+    },
+    {
+      "pixel_count": 823,
+      "row_min": 246,
+      "col_min": 440,
+      "row_max": 344,
+      "col_max": 512,
+      "centroid_row": 289.97326852976914,
+      "centroid_col": 472.9343863912515,
+      "region_id": 16
+    },
+    {
+      "pixel_count": 821,
+      "row_min": 650,
+      "col_min": 28,
+      "row_max": 735,
+      "col_max": 84,
+      "centroid_row": 692.3690621193666,
+      "centroid_col": 57.85870889159561,
+      "region_id": 17
+    },
+    {
+      "pixel_count": 808,
+      "row_min": 301,
+      "col_min": 70,
+      "row_max": 391,
+      "col_max": 125,
+      "centroid_row": 347.93564356435644,
+      "centroid_col": 97.57178217821782,
+      "region_id": 18
+    },
+    {
+      "pixel_count": 799,
+      "row_min": 410,
+      "col_min": 178,
+      "row_max": 535,
+      "col_max": 227,
+      "centroid_row": 470.4217772215269,
+      "centroid_col": 208.7747183979975,
+      "region_id": 19
+    },
+    {
+      "pixel_count": 680,
+      "row_min": 264,
+      "col_min": 639,
+      "row_max": 305,
+      "col_max": 678,
+      "centroid_row": 280.34411764705885,
+      "centroid_col": 662.8970588235294,
+      "region_id": 20
+    }
+  ],
+  "coordinate_convention": "zero-based row,col; top-left origin; bounding-box maxima inclusive; x=col,y=row",
+  "region_connectivity": 8,
+  "region_note": "Regions are model predictions, not verified physical spill boundaries or geographic coordinates",
+  "scene_metrics": {
+    "evaluated_centers": 831042,
+    "true_oil_predicted_oil": 28020,
+    "true_water_predicted_water": 758122,
+    "true_water_predicted_oil": 43908,
+    "true_oil_predicted_water": 992,
+    "accuracy": 0.9459714430798924,
+    "oil_precision": 0.3895562228895562,
+    "oil_recall": 0.9658072521715152,
+    "oil_f1": 0.5551812958192986,
+    "oil_iou": 0.38425671969281405,
+    "interpretation": "Scene agreement only; an independent held-out split has not been established"
+  }
+}

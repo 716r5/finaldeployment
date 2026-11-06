@@ -1,0 +1,24 @@
+{
+  "status": "PASS",
+  "real_source": "GM17.mat",
+  "source_sha256": "755b4fe735ec753dc148d027a18227bb9c591dfbfd5a1fc935ef16a494197ec6",
+  "original_shape": [
+    600,
+    400,
+    224
+  ],
+  "prepared_shape": [
+    600,
+    400,
+    138
+  ],
+  "exactly_equal_to_original_calibration_preprocessing": true,
+  "maximum_absolute_difference": 0.0,
+  "labels_exactly_preserved": true,
+  "label_values": [
+    0,
+    1
+  ],
+  "valid_centers_for_dense_fpga_run": 230100,
+  "meaning": "Actual project MAT preprocessing verified. No FPGA prediction has been generated."
+}

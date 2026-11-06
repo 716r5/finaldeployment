@@ -1,0 +1,13 @@
+{
+  "source_scene": "GM06.mat",
+  "ground_truth_id": 0,
+  "ground_truth_name": "water",
+  "patch_shape": [
+    138,
+    11,
+    11
+  ],
+  "value_min": 0.0,
+  "value_max": 0.4974200129508972,
+  "note": "Training-derived calibration sample; smoke test only, not final evaluation."
+}

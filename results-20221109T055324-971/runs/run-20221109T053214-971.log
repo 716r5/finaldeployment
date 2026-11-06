@@ -1,0 +1,1074 @@
+Full terminal log: /var/lib/oil-spill/runs/run-20221109T053214-971.log
+Board calendar may be incorrect; inference durations use monotonic time.
++ /usr/bin/python3 -c import\ sys\,numpy\,xir\,vart\;\ assert\ sys.version_info\ \>=\ \(3\,8\)\;\ print\(\"Real\ board\ runtime:\"\,sys.executable\,sys.version\,\"NumPy\"\,numpy.__version__\,flush=True\) 
+Real board runtime: /usr/bin/python3 3.10.6 (main, Aug  1 2022, 20:38:21) [GCC 12.2.0] NumPy 1.23.3
+[OK] 1/9 - runtime and storage
++ /usr/bin/python3 - /run/media/kobe-sda1/finaldeployment /opt/oil-spill /var/lib/oil-spill 
+Queued image: GM01.mat 1243 684
+Queued image: GM02.mat 1786 699
+Queued image: GM03.mat 1386 690
+Persistent storage budget checked.
+[OK] 1/9 - runtime and storage
+
+========== 2/9 - verify packaged files and real images ==========
++ /usr/bin/python3 /run/media/kobe-sda1/finaldeployment/deploy.py verify 
+[working] 2/9 - verify packaged files and real images - process 992 is still running
+{
+  "started_utc": "2022-11-09T05:32:16.582792+00:00",
+  "action": "verify",
+  "status": "PASS",
+  "release_manifest_sha256": "3c76c0747cd5b8e40f0fc5f63437e5837890a182b3c905e67fd822d524c33367",
+  "finished_utc": "2022-11-09T05:32:27.594375+00:00",
+  "process_elapsed_ms": 11011.577869999997,
+  "boot_id": "cf6f77ca-f52e-4b80-ab12-8cfc388a083a"
+}
+[OK] 2/9 - verify packaged files and real images
+
+========== 3/9 - install or repair this deployment, preserving model and images ==========
++ /usr/bin/python3 - /run/media/kobe-sda1/finaldeployment /opt/oil-spill 
+Already verified: oil_spill_cnn_138.xmodel
+Already verified: test_patch.npy
+Already verified: test_patch.json
+Copying: deploy.py
+Copying: install.sh
+Already verified: uninstall.sh
+Already verified: oil-spill.service
+Already verified: scene.py
+Already verified: queue_app.py
+Already verified: prepare_scene.py
+Already verified: prepare_queue.py
+Already verified: hsi_contract.py
+Already verified: regions.py
+Copying: start.sh
+Already verified: export_results.sh
+Already verified: scene_queue.json
+[working] 3/9 - install or repair this deployment, preserving model and images - process 997 is still running
+Already verified: scene_input/cube.npy
+Already verified: scene_input/preview.png
+Already verified: scene_input/scene.json
+Already verified: scene_input/input_manifest.json
+[working] 3/9 - install or repair this deployment, preserving model and images - process 997 is still running
+Already verified: scene_input/labels.npy
+[working] 3/9 - install or repair this deployment, preserving model and images - process 997 is still running
+[working] 3/9 - install or repair this deployment, preserving model and images - process 997 is still running
+Already verified: scene_jobs/scene-9593aec13105/cube.npy
+Already verified: scene_jobs/scene-9593aec13105/preview.png
+Already verified: scene_jobs/scene-9593aec13105/scene.json
+Already verified: scene_jobs/scene-9593aec13105/input_manifest.json
+Already verified: scene_jobs/scene-9593aec13105/labels.npy
+[working] 3/9 - install or repair this deployment, preserving model and images - process 997 is still running
+[working] 3/9 - install or repair this deployment, preserving model and images - process 997 is still running
+[working] 3/9 - install or repair this deployment, preserving model and images - process 997 is still running
+Already verified: scene_jobs/scene-01ea45f5b7ac/cube.npy
+Already verified: scene_jobs/scene-01ea45f5b7ac/preview.png
+Already verified: scene_jobs/scene-01ea45f5b7ac/scene.json
+Already verified: scene_jobs/scene-01ea45f5b7ac/input_manifest.json
+Already verified: scene_jobs/scene-01ea45f5b7ac/labels.npy
+Copying: RUN.sh
+Installation synchronized; no files deleted.
+[OK] 3/9 - install or repair this deployment, preserving model and images
++ /usr/bin/python3 - /usr/bin/python3 
+[OK] 3/9 - install or repair this deployment, preserving model and images
++ /usr/bin/python3 /opt/oil-spill/deploy.py verify 
+{
+  "started_utc": "2022-11-09T05:33:39.639619+00:00",
+  "action": "verify",
+  "status": "PASS",
+  "release_manifest_sha256": "3c76c0747cd5b8e40f0fc5f63437e5837890a182b3c905e67fd822d524c33367",
+  "finished_utc": "2022-11-09T05:33:48.242256+00:00",
+  "process_elapsed_ms": 8602.625050000028,
+  "boot_id": "cf6f77ca-f52e-4b80-ab12-8cfc388a083a"
+}
+[OK] 3/9 - install or repair this deployment, preserving model and images
+
+========== 4/9 - find or load the actual DPU ==========
++ timeout 180 /usr/bin/python3 - /opt/oil-spill 
+{
+    "DPU IP Spec":{
+        "DPU Core Count":2,
+        "IP version":"v4.1.0",
+        "generation timestamp":"2023-02-21 21-30-00",
+        "git commit id":"7d32c41",
+        "git commit time":2023022121,
+        "regmap":"1to1 version"
+    },
+    "VAI Version":{
+        "libvart-runner.so":"Xilinx vart-runner Version: 3.5.0-b7953a2a9f60e23efdfced5c186328dd1449665c  2023-09-12-23:21:45 ",
+        "libvitis_ai_library-dpu_task.so":"Advanced Micro Devices vitis_ai_library dpu_task Version: 3.5.0-b7953a2a9f60e23efdfced5c186328dd1449665c  2023-06-29 03:20:28 [UTC] ",
+        "libxir.so":"Xilinx xir Version: xir-b7953a2a9f60e23efdfced5c186328dd1449665c 2023-09-12-22:56:08",
+        "target_factory":"target-factory.3.5.0 b7953a2a9f60e23efdfced5c186328dd1449665c"
+    },
+    "kernels":[
+        {
+            "AIE Frequency (Hz)":0,
+            "DPU Arch":"DPUCZDX8G_ISA1_B4096",
+            "DPU Frequency (MHz)":300,
+            "IP Type":"DPU",
+            "Load Parallel":2,
+            "Load augmentation":"enable",
+            "Load minus mean":"disable",
+            "Save Parallel":2,
+            "XRT Frequency (MHz)":300,
+            "cu_addr":"0xa0010000",
+            "cu_handle":"0xaaaad750d310",
+            "cu_idx":0,
+            "cu_mask":2,
+            "cu_name":"DPUCZDX8G:DPUCZDX8G_1",
+            "device_id":0,
+            "fingerprint":"0x101000056010407",
+            "name":"DPU Core 0"
+        },
+        {
+            "AIE Frequency (Hz)":0,
+            "DPU Arch":"DPUCZDX8G_ISA1_B4096",
+            "DPU Frequency (MHz)":300,
+            "IP Type":"DPU",
+            "Load Parallel":2,
+            "Load augmentation":"enable",
+            "Load minus mean":"disable",
+            "Save Parallel":2,
+            "XRT Frequency (MHz)":300,
+            "cu_addr":"0xa0011000",
+            "cu_handle":"0xaaaad752ec70",
+            "cu_idx":1,
+            "cu_mask":1,
+            "cu_name":"DPUCZDX8G:DPUCZDX8G_2",
+            "device_id":0,
+            "fingerprint":"0x101000056010407",
+            "name":"DPU Core 1"
+        }
+    ]
+}
+
+[OK] 4/9 - find or load the actual DPU
+
+========== 5/9 - execute the real known sample on the FPGA ==========
++ timeout 180 /usr/bin/python3 /opt/oil-spill/deploy.py run --load-dpu 
+{
+  "started_utc": "2022-11-09T05:33:50.216207+00:00",
+  "action": "run",
+  "status": "PASS",
+  "release_manifest_sha256": "3c76c0747cd5b8e40f0fc5f63437e5837890a182b3c905e67fd822d524c33367",
+  "dpu_query": "{\n    \"DPU IP Spec\":{\n        \"DPU Core Count\":2,\n        \"IP version\":\"v4.1.0\",\n        \"generation timestamp\":\"2023-02-21 21-30-00\",\n        \"git commit id\":\"7d32c41\",\n        \"git commit time\":2023022121,\n        \"regmap\":\"1to1 version\"\n    },\n    \"VAI Version\":{\n        \"libvart-runner.so\":\"Xilinx vart-runner Version: 3.5.0-b7953a2a9f60e23efdfced5c186328dd1449665c  2023-09-12-23:21:45 \",\n        \"libvitis_ai_library-dpu_task.so\":\"Advanced Micro Devices vitis_ai_library dpu_task Version: 3.5.0-b7953a2a9f60e23efdfced5c186328dd1449665c  2023-06-29 03:20:28 [UTC] \",\n        \"libxir.so\":\"Xilinx xir Version: xir-b7953a2a9f60e23efdfced5c186328dd1449665c 2023-09-12-22:56:08\",\n        \"target_factory\":\"target-factory.3.5.0 b7953a2a9f60e23efdfced5c186328dd1449665c\"\n    },\n    \"kernels\":[\n        {\n            \"AIE Frequency (Hz)\":0,\n            \"DPU Arch\":\"DPUCZDX8G_ISA1_B4096\",\n            \"DPU Frequency (MHz)\":300,\n            \"IP Type\":\"DPU\",\n            \"Load Parallel\":2,\n            \"Load augmentation\":\"enable\",\n            \"Load minus mean\":\"disable\",\n            \"Save Parallel\":2,\n            \"XRT Frequency (MHz)\":300,\n            \"cu_addr\":\"0xa0010000\",\n            \"cu_handle\":\"0xaaab122fd5a0\",\n            \"cu_idx\":0,\n            \"cu_mask\":2,\n            \"cu_name\":\"DPUCZDX8G:DPUCZDX8G_1\",\n            \"device_id\":0,\n            \"fingerprint\":\"0x101000056010407\",\n            \"name\":\"DPU Core 0\"\n        },\n        {\n            \"AIE Frequency (Hz)\":0,\n            \"DPU Arch\":\"DPUCZDX8G_ISA1_B4096\",\n            \"DPU Frequency (MHz)\":300,\n            \"IP Type\":\"DPU\",\n            \"Load Parallel\":2,\n            \"Load augmentation\":\"enable\",\n            \"Load minus mean\":\"disable\",\n            \"Save Parallel\":2,\n            \"XRT Frequency (MHz)\":300,\n            \"cu_addr\":\"0xa0011000\",\n            \"cu_handle\":\"0xaaab12303de0\",\n            \"cu_idx\":1,\n            \"cu_mask\":1,\n            \"cu_name\":\"DPUCZDX8G:DPUCZDX8G_2\",\n            \"device_id\":0,\n            \"fingerprint\":\"0x101000056010407\",\n            \"name\":\"DPU Core 1\"\n        }\n    ]\n}\n",
+  "python": "3.10.6 (main, Aug  1 2022, 20:38:21) [GCC 12.2.0]",
+  "platform": "Linux-6.1.30-xilinx-v2023.1-aarch64-with-glibc2.36",
+  "model_sha256": "6985462767744b40c760ed1fff075c3c350d281aff4d705253e52fb010a8c3e4",
+  "input_sha256": "08209a81126ceeea44b6b50e1e9c20604667fa2ad033b43ae14e17983951470a",
+  "fingerprint": "0x101000056010407",
+  "input_shape": [
+    1,
+    11,
+    11,
+    138
+  ],
+  "output_shape": [
+    1
+  ],
+  "output_step": 0.125,
+  "graph_coverage": [
+    {
+      "name": "subgraph_FinetunedCNN__input_0",
+      "device": "USER",
+      "op_types": [
+        "data-fix"
+      ]
+    },
+    {
+      "name": "subgraph_FinetunedCNN__FinetunedCNN_Linear_classifier__ret_27(TransferMatMulToConv2d)",
+      "device": "DPU",
+      "op_types": [
+        "const-fix",
+        "conv2d-fix",
+        "download",
+        "pool-fix",
+        "reshape-fix",
+        "upload"
+      ]
+    },
+    {
+      "name": "subgraph_FinetunedCNN__FinetunedCNN_ret_fix_",
+      "device": "CPU",
+      "op_types": [
+        "fix2float"
+      ],
+      "handled_by": "Host signed-INT8 dequantization, checked against the exact model graph"
+    }
+  ],
+  "numpy_version": "1.23.3",
+  "patch_preparation_ms": 54.27410999999438,
+  "logit": -16.0,
+  "oil_probability": 1.12535162055095e-07,
+  "prediction": "water",
+  "execution_ms": 0.45782000000826883,
+  "reference_check": "NOT_ESTABLISHED",
+  "ground_truth": "water",
+  "ground_truth_match": true,
+  "finished_utc": "2022-11-09T05:33:52.033406+00:00",
+  "process_elapsed_ms": 1817.1854600000188,
+  "boot_id": "cf6f77ca-f52e-4b80-ab12-8cfc388a083a"
+}
+[OK] 5/9 - execute the real known sample on the FPGA
+
+========== 6/9 - repeatability and real latency measurement ==========
++ /usr/bin/python3 /opt/oil-spill/deploy.py approve-reference 
+{
+  "started_utc": "2022-11-09T05:33:52.567604+00:00",
+  "action": "approve-reference",
+  "status": "PASS",
+  "release_manifest_sha256": "3c76c0747cd5b8e40f0fc5f63437e5837890a182b3c905e67fd822d524c33367",
+  "reference": {
+    "model_sha256": "6985462767744b40c760ed1fff075c3c350d281aff4d705253e52fb010a8c3e4",
+    "input_sha256": "08209a81126ceeea44b6b50e1e9c20604667fa2ad033b43ae14e17983951470a",
+    "prediction": "water",
+    "logit": -16.0,
+    "tolerance": 0.125,
+    "created_utc": "2022-11-09T05:33:52.577170+00:00",
+    "meaning": "Repeatability baseline from real board execution; not held-out accuracy or independent numerical validation"
+  },
+  "finished_utc": "2022-11-09T05:33:52.578274+00:00",
+  "process_elapsed_ms": 10.635869999987335,
+  "boot_id": "cf6f77ca-f52e-4b80-ab12-8cfc388a083a"
+}
+[OK] 6/9 - repeatability and real latency measurement
++ timeout 180 /usr/bin/python3 /opt/oil-spill/deploy.py boot --load-dpu 
+{
+  "started_utc": "2022-11-09T05:33:52.974486+00:00",
+  "action": "boot",
+  "status": "PASS",
+  "release_manifest_sha256": "3c76c0747cd5b8e40f0fc5f63437e5837890a182b3c905e67fd822d524c33367",
+  "dpu_query": "{\n    \"DPU IP Spec\":{\n        \"DPU Core Count\":2,\n        \"IP version\":\"v4.1.0\",\n        \"generation timestamp\":\"2023-02-21 21-30-00\",\n        \"git commit id\":\"7d32c41\",\n        \"git commit time\":2023022121,\n        \"regmap\":\"1to1 version\"\n    },\n    \"VAI Version\":{\n        \"libvart-runner.so\":\"Xilinx vart-runner Version: 3.5.0-b7953a2a9f60e23efdfced5c186328dd1449665c  2023-09-12-23:21:45 \",\n        \"libvitis_ai_library-dpu_task.so\":\"Advanced Micro Devices vitis_ai_library dpu_task Version: 3.5.0-b7953a2a9f60e23efdfced5c186328dd1449665c  2023-06-29 03:20:28 [UTC] \",\n        \"libxir.so\":\"Xilinx xir Version: xir-b7953a2a9f60e23efdfced5c186328dd1449665c 2023-09-12-22:56:08\",\n        \"target_factory\":\"target-factory.3.5.0 b7953a2a9f60e23efdfced5c186328dd1449665c\"\n    },\n    \"kernels\":[\n        {\n            \"AIE Frequency (Hz)\":0,\n            \"DPU Arch\":\"DPUCZDX8G_ISA1_B4096\",\n            \"DPU Frequency (MHz)\":300,\n            \"IP Type\":\"DPU\",\n            \"Load Parallel\":2,\n            \"Load augmentation\":\"enable\",\n            \"Load minus mean\":\"disable\",\n            \"Save Parallel\":2,\n            \"XRT Frequency (MHz)\":300,\n            \"cu_addr\":\"0xa0010000\",\n            \"cu_handle\":\"0xaaaaf7a3d5a0\",\n            \"cu_idx\":0,\n            \"cu_mask\":2,\n            \"cu_name\":\"DPUCZDX8G:DPUCZDX8G_1\",\n            \"device_id\":0,\n            \"fingerprint\":\"0x101000056010407\",\n            \"name\":\"DPU Core 0\"\n        },\n        {\n            \"AIE Frequency (Hz)\":0,\n            \"DPU Arch\":\"DPUCZDX8G_ISA1_B4096\",\n            \"DPU Frequency (MHz)\":300,\n            \"IP Type\":\"DPU\",\n            \"Load Parallel\":2,\n            \"Load augmentation\":\"enable\",\n            \"Load minus mean\":\"disable\",\n            \"Save Parallel\":2,\n            \"XRT Frequency (MHz)\":300,\n            \"cu_addr\":\"0xa0011000\",\n            \"cu_handle\":\"0xaaaaf7a36ba0\",\n            \"cu_idx\":1,\n            \"cu_mask\":1,\n            \"cu_name\":\"DPUCZDX8G:DPUCZDX8G_2\",\n            \"device_id\":0,\n            \"fingerprint\":\"0x101000056010407\",\n            \"name\":\"DPU Core 1\"\n        }\n    ]\n}\n",
+  "python": "3.10.6 (main, Aug  1 2022, 20:38:21) [GCC 12.2.0]",
+  "platform": "Linux-6.1.30-xilinx-v2023.1-aarch64-with-glibc2.36",
+  "model_sha256": "6985462767744b40c760ed1fff075c3c350d281aff4d705253e52fb010a8c3e4",
+  "input_sha256": "08209a81126ceeea44b6b50e1e9c20604667fa2ad033b43ae14e17983951470a",
+  "fingerprint": "0x101000056010407",
+  "input_shape": [
+    1,
+    11,
+    11,
+    138
+  ],
+  "output_shape": [
+    1
+  ],
+  "output_step": 0.125,
+  "graph_coverage": [
+    {
+      "name": "subgraph_FinetunedCNN__input_0",
+      "device": "USER",
+      "op_types": [
+        "data-fix"
+      ]
+    },
+    {
+      "name": "subgraph_FinetunedCNN__FinetunedCNN_Linear_classifier__ret_27(TransferMatMulToConv2d)",
+      "device": "DPU",
+      "op_types": [
+        "const-fix",
+        "conv2d-fix",
+        "download",
+        "pool-fix",
+        "reshape-fix",
+        "upload"
+      ]
+    },
+    {
+      "name": "subgraph_FinetunedCNN__FinetunedCNN_ret_fix_",
+      "device": "CPU",
+      "op_types": [
+        "fix2float"
+      ],
+      "handled_by": "Host signed-INT8 dequantization, checked against the exact model graph"
+    }
+  ],
+  "numpy_version": "1.23.3",
+  "patch_preparation_ms": 53.49524000001793,
+  "logit": -16.0,
+  "oil_probability": 1.12535162055095e-07,
+  "prediction": "water",
+  "execution_ms": 0.4125400000134505,
+  "reference_check": "PASS",
+  "ground_truth": "water",
+  "ground_truth_match": true,
+  "finished_utc": "2022-11-09T05:33:54.744688+00:00",
+  "process_elapsed_ms": 1770.1923900000338,
+  "boot_id": "cf6f77ca-f52e-4b80-ab12-8cfc388a083a"
+}
+[OK] 6/9 - repeatability and real latency measurement
++ timeout 180 /usr/bin/python3 /opt/oil-spill/deploy.py benchmark --load-dpu --warmup 20 --iterations 200 
+{
+  "started_utc": "2022-11-09T05:33:55.266138+00:00",
+  "action": "benchmark",
+  "status": "PASS",
+  "release_manifest_sha256": "3c76c0747cd5b8e40f0fc5f63437e5837890a182b3c905e67fd822d524c33367",
+  "dpu_query": "{\n    \"DPU IP Spec\":{\n        \"DPU Core Count\":2,\n        \"IP version\":\"v4.1.0\",\n        \"generation timestamp\":\"2023-02-21 21-30-00\",\n        \"git commit id\":\"7d32c41\",\n        \"git commit time\":2023022121,\n        \"regmap\":\"1to1 version\"\n    },\n    \"VAI Version\":{\n        \"libvart-runner.so\":\"Xilinx vart-runner Version: 3.5.0-b7953a2a9f60e23efdfced5c186328dd1449665c  2023-09-12-23:21:45 \",\n        \"libvitis_ai_library-dpu_task.so\":\"Advanced Micro Devices vitis_ai_library dpu_task Version: 3.5.0-b7953a2a9f60e23efdfced5c186328dd1449665c  2023-06-29 03:20:28 [UTC] \",\n        \"libxir.so\":\"Xilinx xir Version: xir-b7953a2a9f60e23efdfced5c186328dd1449665c 2023-09-12-22:56:08\",\n        \"target_factory\":\"target-factory.3.5.0 b7953a2a9f60e23efdfced5c186328dd1449665c\"\n    },\n    \"kernels\":[\n        {\n            \"AIE Frequency (Hz)\":0,\n            \"DPU Arch\":\"DPUCZDX8G_ISA1_B4096\",\n            \"DPU Frequency (MHz)\":300,\n            \"IP Type\":\"DPU\",\n            \"Load Parallel\":2,\n            \"Load augmentation\":\"enable\",\n            \"Load minus mean\":\"disable\",\n            \"Save Parallel\":2,\n            \"XRT Frequency (MHz)\":300,\n            \"cu_addr\":\"0xa0010000\",\n            \"cu_handle\":\"0xaaab081975a0\",\n            \"cu_idx\":0,\n            \"cu_mask\":2,\n            \"cu_name\":\"DPUCZDX8G:DPUCZDX8G_1\",\n            \"device_id\":0,\n            \"fingerprint\":\"0x101000056010407\",\n            \"name\":\"DPU Core 0\"\n        },\n        {\n            \"AIE Frequency (Hz)\":0,\n            \"DPU Arch\":\"DPUCZDX8G_ISA1_B4096\",\n            \"DPU Frequency (MHz)\":300,\n            \"IP Type\":\"DPU\",\n            \"Load Parallel\":2,\n            \"Load augmentation\":\"enable\",\n            \"Load minus mean\":\"disable\",\n            \"Save Parallel\":2,\n            \"XRT Frequency (MHz)\":300,\n            \"cu_addr\":\"0xa0011000\",\n            \"cu_handle\":\"0xaaab0819dde0\",\n            \"cu_idx\":1,\n            \"cu_mask\":1,\n            \"cu_name\":\"DPUCZDX8G:DPUCZDX8G_2\",\n            \"device_id\":0,\n            \"fingerprint\":\"0x101000056010407\",\n            \"name\":\"DPU Core 1\"\n        }\n    ]\n}\n",
+  "python": "3.10.6 (main, Aug  1 2022, 20:38:21) [GCC 12.2.0]",
+  "platform": "Linux-6.1.30-xilinx-v2023.1-aarch64-with-glibc2.36",
+  "model_sha256": "6985462767744b40c760ed1fff075c3c350d281aff4d705253e52fb010a8c3e4",
+  "input_sha256": "08209a81126ceeea44b6b50e1e9c20604667fa2ad033b43ae14e17983951470a",
+  "fingerprint": "0x101000056010407",
+  "input_shape": [
+    1,
+    11,
+    11,
+    138
+  ],
+  "output_shape": [
+    1
+  ],
+  "output_step": 0.125,
+  "graph_coverage": [
+    {
+      "name": "subgraph_FinetunedCNN__input_0",
+      "device": "USER",
+      "op_types": [
+        "data-fix"
+      ]
+    },
+    {
+      "name": "subgraph_FinetunedCNN__FinetunedCNN_Linear_classifier__ret_27(TransferMatMulToConv2d)",
+      "device": "DPU",
+      "op_types": [
+        "const-fix",
+        "conv2d-fix",
+        "download",
+        "pool-fix",
+        "reshape-fix",
+        "upload"
+      ]
+    },
+    {
+      "name": "subgraph_FinetunedCNN__FinetunedCNN_ret_fix_",
+      "device": "CPU",
+      "op_types": [
+        "fix2float"
+      ],
+      "handled_by": "Host signed-INT8 dequantization, checked against the exact model graph"
+    }
+  ],
+  "numpy_version": "1.23.3",
+  "patch_preparation_ms": 52.35221999998885,
+  "warmup": 20,
+  "iterations": 200,
+  "execution_median_ms": 0.2117049999981191,
+  "execution_p95_ms": 0.21475199999656525,
+  "sustained_patches_per_second": 4177.926177711951,
+  "timing_scope": "One prepared patch; reused single runner; throughput includes loop and score decoding",
+  "finished_utc": "2022-11-09T05:33:57.093123+00:00",
+  "process_elapsed_ms": 1826.971760000049,
+  "boot_id": "cf6f77ca-f52e-4b80-ab12-8cfc388a083a"
+}
+[OK] 6/9 - repeatability and real latency measurement
+
+========== 7/9 - real oil/water inference for every queued image ==========
+Watch IMAGE n/total and row progress. Large images take time; predictions require the actual DPU.
++ /usr/bin/python3 /opt/oil-spill/queue_app.py run --load-dpu 
+IMAGE 1/3: GM01.mat
+[working] 7/9 - real oil/water inference for every queued image - process 1051 is still running
+Classified 5392/831042 centres (2735.2/second); estimated 302 seconds remaining
+[working] 7/9 - real oil/water inference for every queued image - process 1051 is still running
+Classified 10784/831042 centres (2710.2/second); estimated 303 seconds remaining
+Classified 16176/831042 centres (2715.7/second); estimated 300 seconds remaining
+Classified 21568/831042 centres (2718.2/second); estimated 298 seconds remaining
+Classified 26960/831042 centres (2718.9/second); estimated 296 seconds remaining
+Classified 32352/831042 centres (2710.7/second); estimated 295 seconds remaining
+[working] 7/9 - real oil/water inference for every queued image - process 1051 is still running
+Classified 37744/831042 centres (2702.3/second); estimated 294 seconds remaining
+Classified 43136/831042 centres (2685.3/second); estimated 293 seconds remaining
+Classified 48528/831042 centres (2681.7/second); estimated 292 seconds remaining
+Classified 53920/831042 centres (2686.4/second); estimated 289 seconds remaining
+Classified 59312/831042 centres (2688.6/second); estimated 287 seconds remaining
+[working] 7/9 - real oil/water inference for every queued image - process 1051 is still running
+Classified 64704/831042 centres (2692.4/second); estimated 285 seconds remaining
+Classified 70096/831042 centres (2695.3/second); estimated 282 seconds remaining
+Classified 75488/831042 centres (2697.9/second); estimated 280 seconds remaining
+Classified 80880/831042 centres (2700.1/second); estimated 278 seconds remaining
+Classified 86272/831042 centres (2702.1/second); estimated 276 seconds remaining
+[working] 7/9 - real oil/water inference for every queued image - process 1051 is still running
+Classified 91664/831042 centres (2703.0/second); estimated 274 seconds remaining
+Classified 97056/831042 centres (2704.1/second); estimated 271 seconds remaining
+Classified 102448/831042 centres (2704.5/second); estimated 269 seconds remaining
+Classified 107840/831042 centres (2704.8/second); estimated 267 seconds remaining
+Classified 113232/831042 centres (2701.3/second); estimated 266 seconds remaining
+[working] 7/9 - real oil/water inference for every queued image - process 1051 is still running
+Classified 118624/831042 centres (2701.1/second); estimated 264 seconds remaining
+Classified 124016/831042 centres (2700.4/second); estimated 262 seconds remaining
+Classified 129408/831042 centres (2701.4/second); estimated 260 seconds remaining
+Classified 134800/831042 centres (2702.9/second); estimated 258 seconds remaining
+Classified 140192/831042 centres (2704.3/second); estimated 255 seconds remaining
+[working] 7/9 - real oil/water inference for every queued image - process 1051 is still running
+Classified 145584/831042 centres (2705.3/second); estimated 253 seconds remaining
+Classified 150976/831042 centres (2706.5/second); estimated 251 seconds remaining
+Classified 156368/831042 centres (2707.1/second); estimated 249 seconds remaining
+Classified 161760/831042 centres (2705.9/second); estimated 247 seconds remaining
+Classified 167152/831042 centres (2704.3/second); estimated 245 seconds remaining
+[working] 7/9 - real oil/water inference for every queued image - process 1051 is still running
+Classified 172544/831042 centres (2702.3/second); estimated 244 seconds remaining
+Classified 177936/831042 centres (2700.5/second); estimated 242 seconds remaining
+Classified 183328/831042 centres (2699.6/second); estimated 240 seconds remaining
+Classified 188720/831042 centres (2700.2/second); estimated 238 seconds remaining
+Classified 194112/831042 centres (2700.7/second); estimated 236 seconds remaining
+[working] 7/9 - real oil/water inference for every queued image - process 1051 is still running
+Classified 199504/831042 centres (2701.0/second); estimated 234 seconds remaining
+Classified 204896/831042 centres (2701.5/second); estimated 232 seconds remaining
+Classified 210288/831042 centres (2702.0/second); estimated 230 seconds remaining
+Classified 215680/831042 centres (2702.2/second); estimated 228 seconds remaining
+Classified 221072/831042 centres (2701.8/second); estimated 226 seconds remaining
+[working] 7/9 - real oil/water inference for every queued image - process 1051 is still running
+Classified 226464/831042 centres (2701.9/second); estimated 224 seconds remaining
+Classified 231856/831042 centres (2702.1/second); estimated 222 seconds remaining
+Classified 237248/831042 centres (2702.1/second); estimated 220 seconds remaining
+Classified 242640/831042 centres (2702.4/second); estimated 218 seconds remaining
+Classified 248032/831042 centres (2702.7/second); estimated 216 seconds remaining
+[working] 7/9 - real oil/water inference for every queued image - process 1051 is still running
+Classified 253424/831042 centres (2702.7/second); estimated 214 seconds remaining
+Classified 258816/831042 centres (2703.0/second); estimated 212 seconds remaining
+Classified 264208/831042 centres (2703.2/second); estimated 210 seconds remaining
+Classified 269600/831042 centres (2703.5/second); estimated 208 seconds remaining
+Classified 274992/831042 centres (2703.8/second); estimated 206 seconds remaining
+Classified 280384/831042 centres (2704.1/second); estimated 204 seconds remaining
+[working] 7/9 - real oil/water inference for every queued image - process 1051 is still running
+Classified 285776/831042 centres (2704.2/second); estimated 202 seconds remaining
+Classified 291168/831042 centres (2704.4/second); estimated 200 seconds remaining
+Classified 296560/831042 centres (2704.8/second); estimated 198 seconds remaining
+Classified 301952/831042 centres (2705.3/second); estimated 196 seconds remaining
+Classified 307344/831042 centres (2705.8/second); estimated 194 seconds remaining
+[working] 7/9 - real oil/water inference for every queued image - process 1051 is still running
+Classified 312736/831042 centres (2705.7/second); estimated 192 seconds remaining
+Classified 318128/831042 centres (2706.1/second); estimated 190 seconds remaining
+Classified 323520/831042 centres (2706.3/second); estimated 188 seconds remaining
+Classified 328912/831042 centres (2706.6/second); estimated 186 seconds remaining
+Classified 334304/831042 centres (2706.9/second); estimated 184 seconds remaining
+[working] 7/9 - real oil/water inference for every queued image - process 1051 is still running
+Classified 339696/831042 centres (2707.2/second); estimated 181 seconds remaining
+Classified 345088/831042 centres (2707.6/second); estimated 179 seconds remaining
+Classified 350480/831042 centres (2708.1/second); estimated 177 seconds remaining
+Classified 355872/831042 centres (2708.3/second); estimated 175 seconds remaining
+Classified 361264/831042 centres (2708.6/second); estimated 173 seconds remaining
+[working] 7/9 - real oil/water inference for every queued image - process 1051 is still running
+Classified 366656/831042 centres (2708.9/second); estimated 171 seconds remaining
+Classified 372048/831042 centres (2709.3/second); estimated 169 seconds remaining
+Classified 377440/831042 centres (2709.8/second); estimated 167 seconds remaining
+Classified 382832/831042 centres (2710.2/second); estimated 165 seconds remaining
+Classified 388224/831042 centres (2710.6/second); estimated 163 seconds remaining
+[working] 7/9 - real oil/water inference for every queued image - process 1051 is still running
+Classified 393616/831042 centres (2710.9/second); estimated 161 seconds remaining
+Classified 399008/831042 centres (2711.3/second); estimated 159 seconds remaining
+Classified 404400/831042 centres (2711.7/second); estimated 157 seconds remaining
+Classified 409792/831042 centres (2711.8/second); estimated 155 seconds remaining
+Classified 415184/831042 centres (2712.1/second); estimated 153 seconds remaining
+[working] 7/9 - real oil/water inference for every queued image - process 1051 is still running
+Classified 420576/831042 centres (2712.4/second); estimated 151 seconds remaining
+Classified 425968/831042 centres (2712.6/second); estimated 149 seconds remaining
+Classified 431360/831042 centres (2712.6/second); estimated 147 seconds remaining
+Classified 436752/831042 centres (2712.7/second); estimated 145 seconds remaining
+Classified 442144/831042 centres (2712.8/second); estimated 143 seconds remaining
+[working] 7/9 - real oil/water inference for every queued image - process 1051 is still running
+Classified 447536/831042 centres (2712.9/second); estimated 141 seconds remaining
+Classified 452928/831042 centres (2713.1/second); estimated 139 seconds remaining
+Classified 458320/831042 centres (2713.3/second); estimated 137 seconds remaining
+Classified 463712/831042 centres (2713.5/second); estimated 135 seconds remaining
+Classified 469104/831042 centres (2713.7/second); estimated 133 seconds remaining
+[working] 7/9 - real oil/water inference for every queued image - process 1051 is still running
+Classified 474496/831042 centres (2713.7/second); estimated 131 seconds remaining
+Classified 479888/831042 centres (2713.8/second); estimated 129 seconds remaining
+Classified 485280/831042 centres (2713.9/second); estimated 127 seconds remaining
+Classified 490672/831042 centres (2714.0/second); estimated 125 seconds remaining
+Classified 496064/831042 centres (2714.1/second); estimated 123 seconds remaining
+[working] 7/9 - real oil/water inference for every queued image - process 1051 is still running
+Classified 501456/831042 centres (2714.2/second); estimated 121 seconds remaining
+Classified 506848/831042 centres (2714.3/second); estimated 119 seconds remaining
+Classified 512240/831042 centres (2714.3/second); estimated 117 seconds remaining
+Classified 517632/831042 centres (2714.3/second); estimated 115 seconds remaining
+Classified 523024/831042 centres (2714.2/second); estimated 113 seconds remaining
+[working] 7/9 - real oil/water inference for every queued image - process 1051 is still running
+Classified 528416/831042 centres (2714.1/second); estimated 112 seconds remaining
+Classified 533808/831042 centres (2714.0/second); estimated 110 seconds remaining
+Classified 539200/831042 centres (2713.9/second); estimated 108 seconds remaining
+Classified 544592/831042 centres (2713.9/second); estimated 106 seconds remaining
+Classified 549984/831042 centres (2714.0/second); estimated 104 seconds remaining
+[working] 7/9 - real oil/water inference for every queued image - process 1051 is still running
+Classified 555376/831042 centres (2714.0/second); estimated 102 seconds remaining
+Classified 560768/831042 centres (2714.1/second); estimated 100 seconds remaining
+Classified 566160/831042 centres (2714.3/second); estimated 98 seconds remaining
+Classified 571552/831042 centres (2714.4/second); estimated 96 seconds remaining
+Classified 576944/831042 centres (2714.7/second); estimated 94 seconds remaining
+[working] 7/9 - real oil/water inference for every queued image - process 1051 is still running
+Classified 582336/831042 centres (2714.8/second); estimated 92 seconds remaining
+Classified 587728/831042 centres (2715.0/second); estimated 90 seconds remaining
+Classified 593120/831042 centres (2715.1/second); estimated 88 seconds remaining
+Classified 598512/831042 centres (2715.3/second); estimated 86 seconds remaining
+Classified 603904/831042 centres (2715.3/second); estimated 84 seconds remaining
+[working] 7/9 - real oil/water inference for every queued image - process 1051 is still running
+Classified 609296/831042 centres (2714.9/second); estimated 82 seconds remaining
+Classified 614688/831042 centres (2714.7/second); estimated 80 seconds remaining
+Classified 620080/831042 centres (2714.7/second); estimated 78 seconds remaining
+Classified 625472/831042 centres (2714.6/second); estimated 76 seconds remaining
+Classified 630864/831042 centres (2714.6/second); estimated 74 seconds remaining
+[working] 7/9 - real oil/water inference for every queued image - process 1051 is still running
+Classified 636256/831042 centres (2714.5/second); estimated 72 seconds remaining
+Classified 641648/831042 centres (2714.7/second); estimated 70 seconds remaining
+Classified 647040/831042 centres (2714.8/second); estimated 68 seconds remaining
+Classified 652432/831042 centres (2715.0/second); estimated 66 seconds remaining
+Classified 657824/831042 centres (2715.1/second); estimated 64 seconds remaining
+[working] 7/9 - real oil/water inference for every queued image - process 1051 is still running
+Classified 663216/831042 centres (2715.2/second); estimated 62 seconds remaining
+Classified 668608/831042 centres (2715.2/second); estimated 60 seconds remaining
+Classified 674000/831042 centres (2715.3/second); estimated 58 seconds remaining
+Classified 679392/831042 centres (2715.4/second); estimated 56 seconds remaining
+Classified 684784/831042 centres (2715.5/second); estimated 54 seconds remaining
+[working] 7/9 - real oil/water inference for every queued image - process 1051 is still running
+Classified 690176/831042 centres (2715.5/second); estimated 52 seconds remaining
+Classified 695568/831042 centres (2715.6/second); estimated 50 seconds remaining
+Classified 700960/831042 centres (2715.7/second); estimated 48 seconds remaining
+Classified 706352/831042 centres (2715.9/second); estimated 46 seconds remaining
+Classified 711744/831042 centres (2716.0/second); estimated 44 seconds remaining
+[working] 7/9 - real oil/water inference for every queued image - process 1051 is still running
+Classified 717136/831042 centres (2716.1/second); estimated 42 seconds remaining
+Classified 722528/831042 centres (2716.2/second); estimated 40 seconds remaining
+Classified 727920/831042 centres (2716.3/second); estimated 38 seconds remaining
+Classified 733312/831042 centres (2716.4/second); estimated 36 seconds remaining
+Classified 738704/831042 centres (2716.4/second); estimated 34 seconds remaining
+[working] 7/9 - real oil/water inference for every queued image - process 1051 is still running
+Classified 744096/831042 centres (2716.5/second); estimated 32 seconds remaining
+Classified 749488/831042 centres (2716.6/second); estimated 30 seconds remaining
+Classified 754880/831042 centres (2716.6/second); estimated 28 seconds remaining
+Classified 760272/831042 centres (2716.6/second); estimated 26 seconds remaining
+Classified 765664/831042 centres (2716.7/second); estimated 24 seconds remaining
+[working] 7/9 - real oil/water inference for every queued image - process 1051 is still running
+Classified 771056/831042 centres (2716.8/second); estimated 22 seconds remaining
+Classified 776448/831042 centres (2716.8/second); estimated 20 seconds remaining
+Classified 781840/831042 centres (2716.9/second); estimated 18 seconds remaining
+Classified 787232/831042 centres (2716.9/second); estimated 16 seconds remaining
+Classified 792624/831042 centres (2716.9/second); estimated 14 seconds remaining
+Classified 798016/831042 centres (2716.8/second); estimated 12 seconds remaining
+[working] 7/9 - real oil/water inference for every queued image - process 1051 is still running
+Classified 803408/831042 centres (2716.8/second); estimated 10 seconds remaining
+Classified 808800/831042 centres (2716.8/second); estimated 8 seconds remaining
+Classified 814192/831042 centres (2716.8/second); estimated 6 seconds remaining
+Classified 819584/831042 centres (2716.9/second); estimated 4 seconds remaining
+Classified 824976/831042 centres (2717.0/second); estimated 2 seconds remaining
+[working] 7/9 - real oil/water inference for every queued image - process 1051 is still running
+Classified 830368/831042 centres (2717.0/second); estimated 0 seconds remaining
+Classified 831042/831042 centres (2716.9/second); estimated 0 seconds remaining
+COMPLETE. Open report.html from: /var/lib/oil-spill/scenes/3965601b62de-698546276774-s1
+IMAGE 2/3: GM02.mat
+[working] 7/9 - real oil/water inference for every queued image - process 1051 is still running
+[working] 7/9 - real oil/water inference for every queued image - process 1051 is still running
+Classified 5512/1223664 centres (2743.5/second); estimated 444 seconds remaining
+[working] 7/9 - real oil/water inference for every queued image - process 1051 is still running
+Classified 11024/1223664 centres (2718.3/second); estimated 446 seconds remaining
+Classified 16536/1223664 centres (2720.9/second); estimated 444 seconds remaining
+Classified 22048/1223664 centres (2721.6/second); estimated 442 seconds remaining
+Classified 27560/1223664 centres (2724.9/second); estimated 439 seconds remaining
+Classified 33072/1223664 centres (2724.2/second); estimated 437 seconds remaining
+[working] 7/9 - real oil/water inference for every queued image - process 1051 is still running
+Classified 38584/1223664 centres (2694.4/second); estimated 440 seconds remaining
+Classified 44096/1223664 centres (2697.1/second); estimated 437 seconds remaining
+Classified 49608/1223664 centres (2701.7/second); estimated 435 seconds remaining
+Classified 55120/1223664 centres (2705.6/second); estimated 432 seconds remaining
+Classified 60632/1223664 centres (2708.6/second); estimated 429 seconds remaining
+[working] 7/9 - real oil/water inference for every queued image - process 1051 is still running
+Classified 66144/1223664 centres (2710.4/second); estimated 427 seconds remaining
+Classified 71656/1223664 centres (2711.9/second); estimated 425 seconds remaining
+Classified 77168/1223664 centres (2713.5/second); estimated 423 seconds remaining
+Classified 82680/1223664 centres (2715.0/second); estimated 420 seconds remaining
+Classified 88192/1223664 centres (2716.6/second); estimated 418 seconds remaining
+[working] 7/9 - real oil/water inference for every queued image - process 1051 is still running
+Classified 93704/1223664 centres (2716.9/second); estimated 416 seconds remaining
+Classified 99216/1223664 centres (2716.7/second); estimated 414 seconds remaining
+Classified 104728/1223664 centres (2716.2/second); estimated 412 seconds remaining
+Classified 110240/1223664 centres (2716.0/second); estimated 410 seconds remaining
+Classified 115752/1223664 centres (2716.9/second); estimated 408 seconds remaining
+[working] 7/9 - real oil/water inference for every queued image - process 1051 is still running
+Classified 121264/1223664 centres (2716.9/second); estimated 406 seconds remaining
+Classified 126776/1223664 centres (2717.7/second); estimated 404 seconds remaining
+Classified 132288/1223664 centres (2718.2/second); estimated 402 seconds remaining
+Classified 137800/1223664 centres (2718.6/second); estimated 399 seconds remaining
+Classified 143312/1223664 centres (2719.3/second); estimated 397 seconds remaining
+[working] 7/9 - real oil/water inference for every queued image - process 1051 is still running
+Classified 148824/1223664 centres (2719.5/second); estimated 395 seconds remaining
+Classified 154336/1223664 centres (2720.3/second); estimated 393 seconds remaining
+Classified 159848/1223664 centres (2720.5/second); estimated 391 seconds remaining
+Classified 165360/1223664 centres (2721.2/second); estimated 389 seconds remaining
+Classified 170872/1223664 centres (2721.8/second); estimated 387 seconds remaining
+[working] 7/9 - real oil/water inference for every queued image - process 1051 is still running
+Classified 176384/1223664 centres (2722.0/second); estimated 385 seconds remaining
+Classified 181896/1223664 centres (2722.2/second); estimated 383 seconds remaining
+Classified 187408/1223664 centres (2722.1/second); estimated 381 seconds remaining
+Classified 192920/1223664 centres (2722.4/second); estimated 379 seconds remaining
+Classified 198432/1223664 centres (2722.6/second); estimated 377 seconds remaining
+[working] 7/9 - real oil/water inference for every queued image - process 1051 is still running
+Classified 203944/1223664 centres (2722.7/second); estimated 375 seconds remaining
+Classified 209456/1223664 centres (2722.7/second); estimated 372 seconds remaining
+Classified 214968/1223664 centres (2723.0/second); estimated 370 seconds remaining
+Classified 220480/1223664 centres (2723.3/second); estimated 368 seconds remaining
+Classified 225992/1223664 centres (2723.5/second); estimated 366 seconds remaining
+[working] 7/9 - real oil/water inference for every queued image - process 1051 is still running
+Classified 231504/1223664 centres (2723.8/second); estimated 364 seconds remaining
+Classified 237016/1223664 centres (2724.1/second); estimated 362 seconds remaining
+Classified 242528/1223664 centres (2724.2/second); estimated 360 seconds remaining
+Classified 248040/1223664 centres (2724.4/second); estimated 358 seconds remaining
+Classified 253552/1223664 centres (2724.6/second); estimated 356 seconds remaining
+[working] 7/9 - real oil/water inference for every queued image - process 1051 is still running
+Classified 259064/1223664 centres (2724.8/second); estimated 354 seconds remaining
+Classified 264576/1223664 centres (2724.9/second); estimated 352 seconds remaining
+Classified 270088/1223664 centres (2725.1/second); estimated 350 seconds remaining
+Classified 275600/1223664 centres (2725.1/second); estimated 348 seconds remaining
+Classified 281112/1223664 centres (2725.2/second); estimated 346 seconds remaining
+[working] 7/9 - real oil/water inference for every queued image - process 1051 is still running
+Classified 286624/1223664 centres (2725.2/second); estimated 344 seconds remaining
+Classified 292136/1223664 centres (2725.5/second); estimated 342 seconds remaining
+Classified 297648/1223664 centres (2725.6/second); estimated 340 seconds remaining
+Classified 303160/1223664 centres (2725.7/second); estimated 338 seconds remaining
+Classified 308672/1223664 centres (2725.8/second); estimated 336 seconds remaining
+[working] 7/9 - real oil/water inference for every queued image - process 1051 is still running
+Classified 314184/1223664 centres (2725.7/second); estimated 334 seconds remaining
+Classified 319696/1223664 centres (2726.0/second); estimated 332 seconds remaining
+Classified 325208/1223664 centres (2726.3/second); estimated 330 seconds remaining
+Classified 330720/1223664 centres (2726.5/second); estimated 328 seconds remaining
+Classified 336232/1223664 centres (2726.8/second); estimated 325 seconds remaining
+[working] 7/9 - real oil/water inference for every queued image - process 1051 is still running
+Classified 341744/1223664 centres (2726.8/second); estimated 323 seconds remaining
+Classified 347256/1223664 centres (2727.1/second); estimated 321 seconds remaining
+Classified 352768/1223664 centres (2727.3/second); estimated 319 seconds remaining
+Classified 358280/1223664 centres (2727.5/second); estimated 317 seconds remaining
+Classified 363792/1223664 centres (2727.6/second); estimated 315 seconds remaining
+[working] 7/9 - real oil/water inference for every queued image - process 1051 is still running
+Classified 369304/1223664 centres (2727.5/second); estimated 313 seconds remaining
+Classified 374816/1223664 centres (2727.6/second); estimated 311 seconds remaining
+Classified 380328/1223664 centres (2727.7/second); estimated 309 seconds remaining
+Classified 385840/1223664 centres (2727.7/second); estimated 307 seconds remaining
+Classified 391352/1223664 centres (2727.9/second); estimated 305 seconds remaining
+[working] 7/9 - real oil/water inference for every queued image - process 1051 is still running
+Classified 396864/1223664 centres (2727.7/second); estimated 303 seconds remaining
+Classified 402376/1223664 centres (2727.7/second); estimated 301 seconds remaining
+Classified 407888/1223664 centres (2727.8/second); estimated 299 seconds remaining
+Classified 413400/1223664 centres (2727.9/second); estimated 297 seconds remaining
+Classified 418912/1223664 centres (2728.0/second); estimated 295 seconds remaining
+[working] 7/9 - real oil/water inference for every queued image - process 1051 is still running
+Classified 424424/1223664 centres (2728.0/second); estimated 293 seconds remaining
+Classified 429936/1223664 centres (2728.2/second); estimated 291 seconds remaining
+Classified 435448/1223664 centres (2728.0/second); estimated 289 seconds remaining
+Classified 440960/1223664 centres (2728.0/second); estimated 287 seconds remaining
+Classified 446472/1223664 centres (2727.9/second); estimated 285 seconds remaining
+[working] 7/9 - real oil/water inference for every queued image - process 1051 is still running
+Classified 451984/1223664 centres (2727.8/second); estimated 283 seconds remaining
+Classified 457496/1223664 centres (2727.9/second); estimated 281 seconds remaining
+Classified 463008/1223664 centres (2727.8/second); estimated 279 seconds remaining
+Classified 468520/1223664 centres (2727.7/second); estimated 277 seconds remaining
+Classified 474032/1223664 centres (2727.8/second); estimated 275 seconds remaining
+[working] 7/9 - real oil/water inference for every queued image - process 1051 is still running
+Classified 479544/1223664 centres (2727.9/second); estimated 273 seconds remaining
+Classified 485056/1223664 centres (2728.0/second); estimated 271 seconds remaining
+Classified 490568/1223664 centres (2728.0/second); estimated 269 seconds remaining
+Classified 496080/1223664 centres (2728.1/second); estimated 267 seconds remaining
+[working] 7/9 - real oil/water inference for every queued image - process 1051 is still running
+Classified 501592/1223664 centres (2728.1/second); estimated 265 seconds remaining
+Classified 507104/1223664 centres (2728.1/second); estimated 263 seconds remaining
+Classified 512616/1223664 centres (2728.2/second); estimated 261 seconds remaining
+Classified 518128/1223664 centres (2728.3/second); estimated 259 seconds remaining
+Classified 523640/1223664 centres (2728.2/second); estimated 257 seconds remaining
+[working] 7/9 - real oil/water inference for every queued image - process 1051 is still running
+Classified 529152/1223664 centres (2728.0/second); estimated 255 seconds remaining
+Classified 534664/1223664 centres (2727.8/second); estimated 253 seconds remaining
+Classified 540176/1223664 centres (2727.7/second); estimated 251 seconds remaining
+Classified 545688/1223664 centres (2727.6/second); estimated 249 seconds remaining
+Classified 551200/1223664 centres (2727.4/second); estimated 247 seconds remaining
+[working] 7/9 - real oil/water inference for every queued image - process 1051 is still running
+Classified 556712/1223664 centres (2727.4/second); estimated 245 seconds remaining
+Classified 562224/1223664 centres (2727.5/second); estimated 243 seconds remaining
+Classified 567736/1223664 centres (2727.4/second); estimated 240 seconds remaining
+Classified 573248/1223664 centres (2727.5/second); estimated 238 seconds remaining
+Classified 578760/1223664 centres (2727.6/second); estimated 236 seconds remaining
+[working] 7/9 - real oil/water inference for every queued image - process 1051 is still running
+Classified 584272/1223664 centres (2727.6/second); estimated 234 seconds remaining
+Classified 589784/1223664 centres (2727.6/second); estimated 232 seconds remaining
+Classified 595296/1223664 centres (2727.4/second); estimated 230 seconds remaining
+Classified 600808/1223664 centres (2727.3/second); estimated 228 seconds remaining
+Classified 606320/1223664 centres (2727.3/second); estimated 226 seconds remaining
+[working] 7/9 - real oil/water inference for every queued image - process 1051 is still running
+Classified 611832/1223664 centres (2727.2/second); estimated 224 seconds remaining
+Classified 617344/1223664 centres (2727.2/second); estimated 222 seconds remaining
+Classified 622856/1223664 centres (2727.2/second); estimated 220 seconds remaining
+Classified 628368/1223664 centres (2727.2/second); estimated 218 seconds remaining
+Classified 633880/1223664 centres (2727.2/second); estimated 216 seconds remaining
+[working] 7/9 - real oil/water inference for every queued image - process 1051 is still running
+Classified 639392/1223664 centres (2727.2/second); estimated 214 seconds remaining
+Classified 644904/1223664 centres (2727.1/second); estimated 212 seconds remaining
+Classified 650416/1223664 centres (2726.9/second); estimated 210 seconds remaining
+Classified 655928/1223664 centres (2726.7/second); estimated 208 seconds remaining
+Classified 661440/1223664 centres (2726.6/second); estimated 206 seconds remaining
+[working] 7/9 - real oil/water inference for every queued image - process 1051 is still running
+Classified 666952/1223664 centres (2726.4/second); estimated 204 seconds remaining
+Classified 672464/1223664 centres (2726.2/second); estimated 202 seconds remaining
+Classified 677976/1223664 centres (2726.0/second); estimated 200 seconds remaining
+Classified 683488/1223664 centres (2725.9/second); estimated 198 seconds remaining
+Classified 689000/1223664 centres (2725.9/second); estimated 196 seconds remaining
+[working] 7/9 - real oil/water inference for every queued image - process 1051 is still running
+Classified 694512/1223664 centres (2725.8/second); estimated 194 seconds remaining
+Classified 700024/1223664 centres (2725.9/second); estimated 192 seconds remaining
+Classified 705536/1223664 centres (2726.0/second); estimated 190 seconds remaining
+Classified 711048/1223664 centres (2726.0/second); estimated 188 seconds remaining
+Classified 716560/1223664 centres (2726.1/second); estimated 186 seconds remaining
+[working] 7/9 - real oil/water inference for every queued image - process 1051 is still running
+Classified 722072/1223664 centres (2726.1/second); estimated 184 seconds remaining
+Classified 727584/1223664 centres (2726.2/second); estimated 182 seconds remaining
+Classified 733096/1223664 centres (2726.3/second); estimated 180 seconds remaining
+Classified 738608/1223664 centres (2726.3/second); estimated 178 seconds remaining
+Classified 744120/1223664 centres (2726.4/second); estimated 176 seconds remaining
+[working] 7/9 - real oil/water inference for every queued image - process 1051 is still running
+Classified 749632/1223664 centres (2726.3/second); estimated 174 seconds remaining
+Classified 755144/1223664 centres (2726.4/second); estimated 172 seconds remaining
+Classified 760656/1223664 centres (2726.4/second); estimated 170 seconds remaining
+Classified 766168/1223664 centres (2726.5/second); estimated 168 seconds remaining
+Classified 771680/1223664 centres (2726.6/second); estimated 166 seconds remaining
+[working] 7/9 - real oil/water inference for every queued image - process 1051 is still running
+Classified 777192/1223664 centres (2726.5/second); estimated 164 seconds remaining
+Classified 782704/1223664 centres (2726.4/second); estimated 162 seconds remaining
+Classified 788216/1223664 centres (2726.5/second); estimated 160 seconds remaining
+Classified 793728/1223664 centres (2726.5/second); estimated 158 seconds remaining
+Classified 799240/1223664 centres (2726.6/second); estimated 156 seconds remaining
+[working] 7/9 - real oil/water inference for every queued image - process 1051 is still running
+Classified 804752/1223664 centres (2726.6/second); estimated 154 seconds remaining
+Classified 810264/1223664 centres (2726.6/second); estimated 152 seconds remaining
+Classified 815776/1223664 centres (2726.7/second); estimated 150 seconds remaining
+Classified 821288/1223664 centres (2726.7/second); estimated 148 seconds remaining
+Classified 826800/1223664 centres (2726.7/second); estimated 146 seconds remaining
+[working] 7/9 - real oil/water inference for every queued image - process 1051 is still running
+Classified 832312/1223664 centres (2726.7/second); estimated 144 seconds remaining
+Classified 837824/1223664 centres (2726.8/second); estimated 142 seconds remaining
+Classified 843336/1223664 centres (2726.8/second); estimated 139 seconds remaining
+Classified 848848/1223664 centres (2726.9/second); estimated 137 seconds remaining
+Classified 854360/1223664 centres (2726.9/second); estimated 135 seconds remaining
+[working] 7/9 - real oil/water inference for every queued image - process 1051 is still running
+Classified 859872/1223664 centres (2726.9/second); estimated 133 seconds remaining
+Classified 865384/1223664 centres (2726.9/second); estimated 131 seconds remaining
+Classified 870896/1223664 centres (2727.0/second); estimated 129 seconds remaining
+Classified 876408/1223664 centres (2727.0/second); estimated 127 seconds remaining
+Classified 881920/1223664 centres (2727.0/second); estimated 125 seconds remaining
+[working] 7/9 - real oil/water inference for every queued image - process 1051 is still running
+Classified 887432/1223664 centres (2726.9/second); estimated 123 seconds remaining
+Classified 892944/1223664 centres (2727.0/second); estimated 121 seconds remaining
+Classified 898456/1223664 centres (2727.0/second); estimated 119 seconds remaining
+Classified 903968/1223664 centres (2727.1/second); estimated 117 seconds remaining
+Classified 909480/1223664 centres (2727.1/second); estimated 115 seconds remaining
+[working] 7/9 - real oil/water inference for every queued image - process 1051 is still running
+Classified 914992/1223664 centres (2727.1/second); estimated 113 seconds remaining
+Classified 920504/1223664 centres (2727.2/second); estimated 111 seconds remaining
+Classified 926016/1223664 centres (2727.3/second); estimated 109 seconds remaining
+Classified 931528/1223664 centres (2727.3/second); estimated 107 seconds remaining
+Classified 937040/1223664 centres (2727.4/second); estimated 105 seconds remaining
+[working] 7/9 - real oil/water inference for every queued image - process 1051 is still running
+Classified 942552/1223664 centres (2727.4/second); estimated 103 seconds remaining
+Classified 948064/1223664 centres (2727.5/second); estimated 101 seconds remaining
+Classified 953576/1223664 centres (2727.6/second); estimated 99 seconds remaining
+Classified 959088/1223664 centres (2727.6/second); estimated 97 seconds remaining
+Classified 964600/1223664 centres (2727.6/second); estimated 95 seconds remaining
+[working] 7/9 - real oil/water inference for every queued image - process 1051 is still running
+Classified 970112/1223664 centres (2727.6/second); estimated 93 seconds remaining
+Classified 975624/1223664 centres (2727.5/second); estimated 91 seconds remaining
+Classified 981136/1223664 centres (2727.5/second); estimated 89 seconds remaining
+Classified 986648/1223664 centres (2727.5/second); estimated 87 seconds remaining
+Classified 992160/1223664 centres (2727.5/second); estimated 85 seconds remaining
+[working] 7/9 - real oil/water inference for every queued image - process 1051 is still running
+Classified 997672/1223664 centres (2727.4/second); estimated 83 seconds remaining
+Classified 1003184/1223664 centres (2727.2/second); estimated 81 seconds remaining
+Classified 1008696/1223664 centres (2726.8/second); estimated 79 seconds remaining
+Classified 1014208/1223664 centres (2726.5/second); estimated 77 seconds remaining
+[working] 7/9 - real oil/water inference for every queued image - process 1051 is still running
+Classified 1019720/1223664 centres (2726.2/second); estimated 75 seconds remaining
+Classified 1025232/1223664 centres (2726.0/second); estimated 73 seconds remaining
+Classified 1030744/1223664 centres (2725.8/second); estimated 71 seconds remaining
+Classified 1036256/1223664 centres (2725.6/second); estimated 69 seconds remaining
+Classified 1041768/1223664 centres (2725.4/second); estimated 67 seconds remaining
+[working] 7/9 - real oil/water inference for every queued image - process 1051 is still running
+Classified 1047280/1223664 centres (2725.2/second); estimated 65 seconds remaining
+Classified 1052792/1223664 centres (2725.0/second); estimated 63 seconds remaining
+Classified 1058304/1223664 centres (2724.9/second); estimated 61 seconds remaining
+Classified 1063816/1223664 centres (2724.7/second); estimated 59 seconds remaining
+Classified 1069328/1223664 centres (2724.6/second); estimated 57 seconds remaining
+[working] 7/9 - real oil/water inference for every queued image - process 1051 is still running
+Classified 1074840/1223664 centres (2724.4/second); estimated 55 seconds remaining
+Classified 1080352/1223664 centres (2724.1/second); estimated 53 seconds remaining
+Classified 1085864/1223664 centres (2723.8/second); estimated 51 seconds remaining
+Classified 1091376/1223664 centres (2723.6/second); estimated 49 seconds remaining
+Classified 1096888/1223664 centres (2723.3/second); estimated 47 seconds remaining
+[working] 7/9 - real oil/water inference for every queued image - process 1051 is still running
+Classified 1102400/1223664 centres (2723.0/second); estimated 45 seconds remaining
+Classified 1107912/1223664 centres (2722.7/second); estimated 43 seconds remaining
+Classified 1113424/1223664 centres (2722.4/second); estimated 40 seconds remaining
+Classified 1118936/1223664 centres (2722.5/second); estimated 38 seconds remaining
+Classified 1124448/1223664 centres (2722.5/second); estimated 36 seconds remaining
+[working] 7/9 - real oil/water inference for every queued image - process 1051 is still running
+Classified 1129960/1223664 centres (2722.5/second); estimated 34 seconds remaining
+Classified 1135472/1223664 centres (2722.6/second); estimated 32 seconds remaining
+Classified 1140984/1223664 centres (2722.6/second); estimated 30 seconds remaining
+Classified 1146496/1223664 centres (2722.6/second); estimated 28 seconds remaining
+Classified 1152008/1223664 centres (2722.6/second); estimated 26 seconds remaining
+[working] 7/9 - real oil/water inference for every queued image - process 1051 is still running
+Classified 1157520/1223664 centres (2722.6/second); estimated 24 seconds remaining
+Classified 1163032/1223664 centres (2722.7/second); estimated 22 seconds remaining
+Classified 1168544/1223664 centres (2722.7/second); estimated 20 seconds remaining
+Classified 1174056/1223664 centres (2722.8/second); estimated 18 seconds remaining
+Classified 1179568/1223664 centres (2722.8/second); estimated 16 seconds remaining
+[working] 7/9 - real oil/water inference for every queued image - process 1051 is still running
+Classified 1185080/1223664 centres (2722.8/second); estimated 14 seconds remaining
+Classified 1190592/1223664 centres (2722.8/second); estimated 12 seconds remaining
+Classified 1196104/1223664 centres (2722.9/second); estimated 10 seconds remaining
+Classified 1201616/1223664 centres (2722.9/second); estimated 8 seconds remaining
+Classified 1207128/1223664 centres (2723.0/second); estimated 6 seconds remaining
+[working] 7/9 - real oil/water inference for every queued image - process 1051 is still running
+Classified 1212640/1223664 centres (2723.0/second); estimated 4 seconds remaining
+Classified 1218152/1223664 centres (2723.0/second); estimated 2 seconds remaining
+Classified 1223664/1223664 centres (2723.0/second); estimated 0 seconds remaining
+[working] 7/9 - real oil/water inference for every queued image - process 1051 is still running
+COMPLETE. Open report.html from: /var/lib/oil-spill/scenes/d0ec47e994c6-698546276774-s1
+IMAGE 3/3: GM03.mat
+[working] 7/9 - real oil/water inference for every queued image - process 1051 is still running
+Classified 5440/935680 centres (2740.0/second); estimated 340 seconds remaining
+[working] 7/9 - real oil/water inference for every queued image - process 1051 is still running
+Classified 10880/935680 centres (2726.9/second); estimated 339 seconds remaining
+Classified 16320/935680 centres (2729.0/second); estimated 337 seconds remaining
+Classified 21760/935680 centres (2726.3/second); estimated 335 seconds remaining
+Classified 27200/935680 centres (2727.1/second); estimated 333 seconds remaining
+Classified 32640/935680 centres (2723.9/second); estimated 332 seconds remaining
+[working] 7/9 - real oil/water inference for every queued image - process 1051 is still running
+Classified 38080/935680 centres (2724.8/second); estimated 329 seconds remaining
+Classified 43520/935680 centres (2722.8/second); estimated 328 seconds remaining
+Classified 48960/935680 centres (2722.1/second); estimated 326 seconds remaining
+Classified 54400/935680 centres (2722.3/second); estimated 324 seconds remaining
+Classified 59840/935680 centres (2722.9/second); estimated 322 seconds remaining
+[working] 7/9 - real oil/water inference for every queued image - process 1051 is still running
+Classified 65280/935680 centres (2722.5/second); estimated 320 seconds remaining
+Classified 70720/935680 centres (2720.0/second); estimated 318 seconds remaining
+Classified 76160/935680 centres (2720.3/second); estimated 316 seconds remaining
+Classified 81600/935680 centres (2720.6/second); estimated 314 seconds remaining
+Classified 87040/935680 centres (2719.7/second); estimated 312 seconds remaining
+[working] 7/9 - real oil/water inference for every queued image - process 1051 is still running
+Classified 92480/935680 centres (2720.0/second); estimated 310 seconds remaining
+Classified 97920/935680 centres (2720.1/second); estimated 308 seconds remaining
+Classified 103360/935680 centres (2719.7/second); estimated 306 seconds remaining
+Classified 108800/935680 centres (2718.5/second); estimated 304 seconds remaining
+Classified 114240/935680 centres (2717.9/second); estimated 302 seconds remaining
+[working] 7/9 - real oil/water inference for every queued image - process 1051 is still running
+Classified 119680/935680 centres (2718.4/second); estimated 300 seconds remaining
+Classified 125120/935680 centres (2718.7/second); estimated 298 seconds remaining
+Classified 130560/935680 centres (2719.1/second); estimated 296 seconds remaining
+Classified 136000/935680 centres (2719.6/second); estimated 294 seconds remaining
+Classified 141440/935680 centres (2719.8/second); estimated 292 seconds remaining
+[working] 7/9 - real oil/water inference for every queued image - process 1051 is still running
+Classified 146880/935680 centres (2719.6/second); estimated 290 seconds remaining
+Classified 152320/935680 centres (2719.1/second); estimated 288 seconds remaining
+Classified 157760/935680 centres (2719.4/second); estimated 286 seconds remaining
+Classified 163200/935680 centres (2719.5/second); estimated 284 seconds remaining
+Classified 168640/935680 centres (2719.0/second); estimated 282 seconds remaining
+[working] 7/9 - real oil/water inference for every queued image - process 1051 is still running
+Classified 174080/935680 centres (2718.2/second); estimated 280 seconds remaining
+Classified 179520/935680 centres (2717.6/second); estimated 278 seconds remaining
+Classified 184960/935680 centres (2717.7/second); estimated 276 seconds remaining
+Classified 190400/935680 centres (2716.7/second); estimated 274 seconds remaining
+Classified 195840/935680 centres (2716.9/second); estimated 272 seconds remaining
+[working] 7/9 - real oil/water inference for every queued image - process 1051 is still running
+Classified 201280/935680 centres (2716.6/second); estimated 270 seconds remaining
+Classified 206720/935680 centres (2716.6/second); estimated 268 seconds remaining
+Classified 212160/935680 centres (2716.8/second); estimated 266 seconds remaining
+Classified 217600/935680 centres (2717.0/second); estimated 264 seconds remaining
+Classified 223040/935680 centres (2717.3/second); estimated 262 seconds remaining
+[working] 7/9 - real oil/water inference for every queued image - process 1051 is still running
+Classified 228480/935680 centres (2717.3/second); estimated 260 seconds remaining
+Classified 233920/935680 centres (2717.3/second); estimated 258 seconds remaining
+Classified 239360/935680 centres (2717.1/second); estimated 256 seconds remaining
+Classified 244800/935680 centres (2717.1/second); estimated 254 seconds remaining
+Classified 250240/935680 centres (2717.3/second); estimated 252 seconds remaining
+[working] 7/9 - real oil/water inference for every queued image - process 1051 is still running
+Classified 255680/935680 centres (2717.3/second); estimated 250 seconds remaining
+Classified 261120/935680 centres (2717.4/second); estimated 248 seconds remaining
+Classified 266560/935680 centres (2717.6/second); estimated 246 seconds remaining
+Classified 272000/935680 centres (2717.7/second); estimated 244 seconds remaining
+Classified 277440/935680 centres (2717.6/second); estimated 242 seconds remaining
+[working] 7/9 - real oil/water inference for every queued image - process 1051 is still running
+Classified 282880/935680 centres (2717.6/second); estimated 240 seconds remaining
+Classified 288320/935680 centres (2717.4/second); estimated 238 seconds remaining
+Classified 293760/935680 centres (2717.5/second); estimated 236 seconds remaining
+Classified 299200/935680 centres (2717.4/second); estimated 234 seconds remaining
+Classified 304640/935680 centres (2717.5/second); estimated 232 seconds remaining
+[working] 7/9 - real oil/water inference for every queued image - process 1051 is still running
+Classified 310080/935680 centres (2717.4/second); estimated 230 seconds remaining
+Classified 315520/935680 centres (2717.2/second); estimated 228 seconds remaining
+Classified 320960/935680 centres (2717.4/second); estimated 226 seconds remaining
+Classified 326400/935680 centres (2717.5/second); estimated 224 seconds remaining
+Classified 331840/935680 centres (2717.5/second); estimated 222 seconds remaining
+[working] 7/9 - real oil/water inference for every queued image - process 1051 is still running
+Classified 337280/935680 centres (2717.5/second); estimated 220 seconds remaining
+Classified 342720/935680 centres (2717.4/second); estimated 218 seconds remaining
+Classified 348160/935680 centres (2717.6/second); estimated 216 seconds remaining
+Classified 353600/935680 centres (2717.5/second); estimated 214 seconds remaining
+Classified 359040/935680 centres (2717.5/second); estimated 212 seconds remaining
+[working] 7/9 - real oil/water inference for every queued image - process 1051 is still running
+Classified 364480/935680 centres (2717.5/second); estimated 210 seconds remaining
+Classified 369920/935680 centres (2717.7/second); estimated 208 seconds remaining
+Classified 375360/935680 centres (2717.8/second); estimated 206 seconds remaining
+Classified 380800/935680 centres (2717.9/second); estimated 204 seconds remaining
+Classified 386240/935680 centres (2718.0/second); estimated 202 seconds remaining
+[working] 7/9 - real oil/water inference for every queued image - process 1051 is still running
+Classified 391680/935680 centres (2718.1/second); estimated 200 seconds remaining
+Classified 397120/935680 centres (2718.1/second); estimated 198 seconds remaining
+Classified 402560/935680 centres (2718.2/second); estimated 196 seconds remaining
+Classified 408000/935680 centres (2718.4/second); estimated 194 seconds remaining
+Classified 413440/935680 centres (2718.5/second); estimated 192 seconds remaining
+[working] 7/9 - real oil/water inference for every queued image - process 1051 is still running
+Classified 418880/935680 centres (2718.6/second); estimated 190 seconds remaining
+Classified 424320/935680 centres (2718.7/second); estimated 188 seconds remaining
+Classified 429760/935680 centres (2718.8/second); estimated 186 seconds remaining
+Classified 435200/935680 centres (2718.9/second); estimated 184 seconds remaining
+Classified 440640/935680 centres (2719.1/second); estimated 182 seconds remaining
+[working] 7/9 - real oil/water inference for every queued image - process 1051 is still running
+Classified 446080/935680 centres (2719.1/second); estimated 180 seconds remaining
+Classified 451520/935680 centres (2719.0/second); estimated 178 seconds remaining
+Classified 456960/935680 centres (2719.0/second); estimated 176 seconds remaining
+Classified 462400/935680 centres (2719.0/second); estimated 174 seconds remaining
+Classified 467840/935680 centres (2719.0/second); estimated 172 seconds remaining
+[working] 7/9 - real oil/water inference for every queued image - process 1051 is still running
+Classified 473280/935680 centres (2719.0/second); estimated 170 seconds remaining
+Classified 478720/935680 centres (2718.7/second); estimated 168 seconds remaining
+Classified 484160/935680 centres (2718.8/second); estimated 166 seconds remaining
+Classified 489600/935680 centres (2718.8/second); estimated 164 seconds remaining
+Classified 495040/935680 centres (2718.8/second); estimated 162 seconds remaining
+[working] 7/9 - real oil/water inference for every queued image - process 1051 is still running
+Classified 500480/935680 centres (2718.7/second); estimated 160 seconds remaining
+Classified 505920/935680 centres (2718.5/second); estimated 158 seconds remaining
+Classified 511360/935680 centres (2718.4/second); estimated 156 seconds remaining
+Classified 516800/935680 centres (2718.5/second); estimated 154 seconds remaining
+Classified 522240/935680 centres (2718.5/second); estimated 152 seconds remaining
+[working] 7/9 - real oil/water inference for every queued image - process 1051 is still running
+Classified 527680/935680 centres (2718.5/second); estimated 150 seconds remaining
+Classified 533120/935680 centres (2718.6/second); estimated 148 seconds remaining
+Classified 538560/935680 centres (2718.7/second); estimated 146 seconds remaining
+Classified 544000/935680 centres (2718.7/second); estimated 144 seconds remaining
+Classified 549440/935680 centres (2718.8/second); estimated 142 seconds remaining
+[working] 7/9 - real oil/water inference for every queued image - process 1051 is still running
+Classified 554880/935680 centres (2718.8/second); estimated 140 seconds remaining
+Classified 560320/935680 centres (2718.7/second); estimated 138 seconds remaining
+Classified 565760/935680 centres (2718.7/second); estimated 136 seconds remaining
+Classified 571200/935680 centres (2718.8/second); estimated 134 seconds remaining
+Classified 576640/935680 centres (2718.8/second); estimated 132 seconds remaining
+[working] 7/9 - real oil/water inference for every queued image - process 1051 is still running
+Classified 582080/935680 centres (2718.9/second); estimated 130 seconds remaining
+Classified 587520/935680 centres (2718.8/second); estimated 128 seconds remaining
+Classified 592960/935680 centres (2718.9/second); estimated 126 seconds remaining
+Classified 598400/935680 centres (2719.0/second); estimated 124 seconds remaining
+Classified 603840/935680 centres (2719.0/second); estimated 122 seconds remaining
+[working] 7/9 - real oil/water inference for every queued image - process 1051 is still running
+Classified 609280/935680 centres (2719.0/second); estimated 120 seconds remaining
+Classified 614720/935680 centres (2718.9/second); estimated 118 seconds remaining
+Classified 620160/935680 centres (2718.8/second); estimated 116 seconds remaining
+Classified 625600/935680 centres (2718.7/second); estimated 114 seconds remaining
+Classified 631040/935680 centres (2718.6/second); estimated 112 seconds remaining
+[working] 7/9 - real oil/water inference for every queued image - process 1051 is still running
+Classified 636480/935680 centres (2718.5/second); estimated 110 seconds remaining
+Classified 641920/935680 centres (2718.5/second); estimated 108 seconds remaining
+Classified 647360/935680 centres (2718.6/second); estimated 106 seconds remaining
+Classified 652800/935680 centres (2718.6/second); estimated 104 seconds remaining
+Classified 658240/935680 centres (2718.7/second); estimated 102 seconds remaining
+[working] 7/9 - real oil/water inference for every queued image - process 1051 is still running
+Classified 663680/935680 centres (2718.7/second); estimated 100 seconds remaining
+Classified 669120/935680 centres (2718.8/second); estimated 98 seconds remaining
+Classified 674560/935680 centres (2718.8/second); estimated 96 seconds remaining
+Classified 680000/935680 centres (2718.9/second); estimated 94 seconds remaining
+Classified 685440/935680 centres (2718.9/second); estimated 92 seconds remaining
+[working] 7/9 - real oil/water inference for every queued image - process 1051 is still running
+Classified 690880/935680 centres (2719.0/second); estimated 90 seconds remaining
+Classified 696320/935680 centres (2719.0/second); estimated 88 seconds remaining
+Classified 701760/935680 centres (2719.0/second); estimated 86 seconds remaining
+Classified 707200/935680 centres (2719.0/second); estimated 84 seconds remaining
+Classified 712640/935680 centres (2719.0/second); estimated 82 seconds remaining
+[working] 7/9 - real oil/water inference for every queued image - process 1051 is still running
+Classified 718080/935680 centres (2719.0/second); estimated 80 seconds remaining
+Classified 723520/935680 centres (2719.0/second); estimated 78 seconds remaining
+Classified 728960/935680 centres (2718.9/second); estimated 76 seconds remaining
+Classified 734400/935680 centres (2718.9/second); estimated 74 seconds remaining
+Classified 739840/935680 centres (2718.9/second); estimated 72 seconds remaining
+[working] 7/9 - real oil/water inference for every queued image - process 1051 is still running
+Classified 745280/935680 centres (2718.9/second); estimated 70 seconds remaining
+Classified 750720/935680 centres (2718.9/second); estimated 68 seconds remaining
+Classified 756160/935680 centres (2719.0/second); estimated 66 seconds remaining
+Classified 761600/935680 centres (2719.0/second); estimated 64 seconds remaining
+Classified 767040/935680 centres (2719.0/second); estimated 62 seconds remaining
+[working] 7/9 - real oil/water inference for every queued image - process 1051 is still running
+Classified 772480/935680 centres (2719.0/second); estimated 60 seconds remaining
+Classified 777920/935680 centres (2719.0/second); estimated 58 seconds remaining
+Classified 783360/935680 centres (2719.0/second); estimated 56 seconds remaining
+Classified 788800/935680 centres (2719.1/second); estimated 54 seconds remaining
+Classified 794240/935680 centres (2719.1/second); estimated 52 seconds remaining
+[working] 7/9 - real oil/water inference for every queued image - process 1051 is still running
+Classified 799680/935680 centres (2719.1/second); estimated 50 seconds remaining
+Classified 805120/935680 centres (2719.1/second); estimated 48 seconds remaining
+Classified 810560/935680 centres (2719.0/second); estimated 46 seconds remaining
+Classified 816000/935680 centres (2718.9/second); estimated 44 seconds remaining
+Classified 821440/935680 centres (2719.0/second); estimated 42 seconds remaining
+[working] 7/9 - real oil/water inference for every queued image - process 1051 is still running
+Classified 826880/935680 centres (2719.0/second); estimated 40 seconds remaining
+Classified 832320/935680 centres (2719.0/second); estimated 38 seconds remaining
+Classified 837760/935680 centres (2719.0/second); estimated 36 seconds remaining
+Classified 843200/935680 centres (2719.0/second); estimated 34 seconds remaining
+Classified 848640/935680 centres (2718.9/second); estimated 32 seconds remaining
+[working] 7/9 - real oil/water inference for every queued image - process 1051 is still running
+Classified 854080/935680 centres (2718.9/second); estimated 30 seconds remaining
+Classified 859520/935680 centres (2718.9/second); estimated 28 seconds remaining
+Classified 864960/935680 centres (2718.9/second); estimated 26 seconds remaining
+Classified 870400/935680 centres (2718.9/second); estimated 24 seconds remaining
+Classified 875840/935680 centres (2718.9/second); estimated 22 seconds remaining
+[working] 7/9 - real oil/water inference for every queued image - process 1051 is still running
+Classified 881280/935680 centres (2718.9/second); estimated 20 seconds remaining
+Classified 886720/935680 centres (2718.9/second); estimated 18 seconds remaining
+Classified 892160/935680 centres (2718.8/second); estimated 16 seconds remaining
+Classified 897600/935680 centres (2718.8/second); estimated 14 seconds remaining
+Classified 903040/935680 centres (2718.9/second); estimated 12 seconds remaining
+[working] 7/9 - real oil/water inference for every queued image - process 1051 is still running
+Classified 908480/935680 centres (2718.8/second); estimated 10 seconds remaining
+Classified 913920/935680 centres (2718.8/second); estimated 8 seconds remaining
+Classified 919360/935680 centres (2718.9/second); estimated 6 seconds remaining
+Classified 924800/935680 centres (2718.9/second); estimated 4 seconds remaining
+Classified 930240/935680 centres (2718.9/second); estimated 2 seconds remaining
+[working] 7/9 - real oil/water inference for every queued image - process 1051 is still running
+Classified 935680/935680 centres (2718.9/second); estimated 0 seconds remaining
+COMPLETE. Open report.html from: /var/lib/oil-spill/scenes/bb3e3ee43ed4-698546276774-s1
+ALL INPUT IMAGES COMPLETE. Separate maps/reports are saved for each scene.
+[OK] 7/9 - real oil/water inference for every queued image
+
+========== 8/9 - automatic boot configuration ==========
+Autostart configuration unchanged. Use RUN.sh autostart after a successful manual run.
+
+========== 9/9 - final status and results ==========
++ /usr/bin/python3 /opt/oil-spill/queue_app.py status 
+{
+  "status": "PASS",
+  "started_utc": "2022-11-09T05:33:58.197387+00:00",
+  "boot_id": "cf6f77ca-f52e-4b80-ab12-8cfc388a083a",
+  "total_scenes": 3,
+  "completed_scenes": 3,
+  "results": [
+    {
+      "source_name": "GM01.mat",
+      "mode": "PROCESSED_ON_FPGA",
+      "output_directory": "/var/lib/oil-spill/scenes/3965601b62de-698546276774-s1"
+    },
+    {
+      "source_name": "GM02.mat",
+      "mode": "PROCESSED_ON_FPGA",
+      "output_directory": "/var/lib/oil-spill/scenes/d0ec47e994c6-698546276774-s1"
+    },
+    {
+      "source_name": "GM03.mat",
+      "mode": "PROCESSED_ON_FPGA",
+      "output_directory": "/var/lib/oil-spill/scenes/bb3e3ee43ed4-698546276774-s1"
+    }
+  ],
+  "current_scene": "GM03.mat",
+  "current_scene_number": 3,
+  "updated_utc": "2022-11-09T05:47:19.039178+00:00",
+  "finished_utc": "2022-11-09T05:53:23.135801+00:00"
+}
+[OK] 9/9 - final status and results
++ bash /opt/oil-spill/export_results.sh /run/media/kobe-sda1/finaldeployment/results-20221109T055324-971 

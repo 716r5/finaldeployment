@@ -1,0 +1,10 @@
+{
+  "started_utc": "2022-11-09T01:58:37.156992+00:00",
+  "action": "doctor",
+  "status": "FAIL",
+  "release_manifest_sha256": "364d1db2d140617c2f3ae662e8b7b40084c477af8bd369a0670ab1481c6e7fb6",
+  "error": "TimeoutExpired: Command '['xdputil', 'query']' timed out after 15 seconds",
+  "finished_utc": "2022-11-09T01:58:52.186780+00:00",
+  "process_elapsed_ms": 15029.785249999804,
+  "boot_id": "8562d2b2-9224-43a3-a60c-37b396276907"
+}

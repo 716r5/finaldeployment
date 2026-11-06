@@ -1,0 +1,12 @@
+.DS_Store
+__pycache__/
+*.pyc
+.env
+.venv/
+# Large prepared cubes are distributed as a GitHub Release archive.
+scene_input/cube.npy
+scene_jobs/*/cube.npy
+prepared-scenes.tar.gz
+# Newly prepared datasets remain local until deliberately published.
+additional_inputs/
+*.mat

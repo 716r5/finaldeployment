@@ -1,0 +1,9 @@
+{
+  "contract": "hsi-138-scene-percentile-1-99-v1",
+  "sha256": {
+    "cube.npy": "b04c9ed0bb232aedfe88788f061263d7e409f5fba4118a1d781c0fa3fc6e8dcc",
+    "preview.png": "a9780384023577d2ec8b7ee811502fd9c5c4792726bb2b827e1d512a94409bec",
+    "scene.json": "d0ec47e994c6f2621cd0b5f7a607715a79c6dbfdb7f4164b44d346484224a68c",
+    "labels.npy": "85a75b95cbe8ad7a027df5c5f8fdbdb51d8b14a77b6a81b27bc41b2da7db92bc"
+  }
+}

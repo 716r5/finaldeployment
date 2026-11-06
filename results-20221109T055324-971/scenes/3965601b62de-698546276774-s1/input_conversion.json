@@ -1,0 +1,8 @@
+{
+  "identity": {
+    "cube_sha256": "11a051c72480df90da9ac8d4e73990ffa67e59a2b98fe409c5ef8df4978bf0b5",
+    "scale": 64.0
+  },
+  "sha256": "2ee64fca326e92f6bef851696e7a71e8ae545937e432602dbaae6d0275740d86",
+  "meaning": "Runtime activation conversion using the loaded model input fix_point, not model re-quantization"
+}

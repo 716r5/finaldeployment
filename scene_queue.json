@@ -1,0 +1,13 @@
+{
+  "contract": "hsi-138-scene-percentile-1-99-v1",
+  "scenes": [
+    {
+      "directory": "scene_input",
+      "source_name": "GM01.mat"
+    },
+    {
+      "directory": "scene_jobs/scene-9593aec13105",
+      "source_name": "GM02.mat"
+    }
+  ]
+}

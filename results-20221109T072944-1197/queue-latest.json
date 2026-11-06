@@ -1,0 +1,23 @@
+{
+  "status": "PASS",
+  "started_utc": "2022-11-09T07:16:29.605399+00:00",
+  "boot_id": "664a74bf-b15e-4618-96e5-73411b2c30aa",
+  "total_scenes": 2,
+  "completed_scenes": 2,
+  "results": [
+    {
+      "source_name": "GM01.mat",
+      "mode": "PROCESSED_ON_FPGA",
+      "output_directory": "/var/lib/oil-spill/scenes/3965601b62de-698546276774-s1-mad1"
+    },
+    {
+      "source_name": "GM02.mat",
+      "mode": "PROCESSED_ON_FPGA",
+      "output_directory": "/var/lib/oil-spill/scenes/d0ec47e994c6-698546276774-s1-mad1"
+    }
+  ],
+  "current_scene": "GM02.mat",
+  "current_scene_number": 2,
+  "updated_utc": "2022-11-09T07:21:51.415804+00:00",
+  "finished_utc": "2022-11-09T07:29:43.236309+00:00"
+}

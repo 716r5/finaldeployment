@@ -6,7 +6,7 @@ notes
 
 *sometimes the fpga doesnt detect the usb, if that happens leave the fpga alone for a while or type dfx-mgr-client -load dpu and then xdputil query 
 
-*kobe is the name of the usb, replace with number of your device while using 
+*kobe is the name of the usb, replace with name of your device while using 
 
 A deployment package for running a trained hyperspectral CNN on the PlanetSpark X7 AI Edge V23. The INT8 model runs on the board's DPU. The CPU prepares patches, applies variance-adaptive thresholding and builds the scene maps.
 
